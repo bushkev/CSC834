@@ -1,11 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Individual_Project
 {
@@ -14,21 +10,18 @@ namespace Individual_Project
         String title;
         String startTime;
         String endTime;
-        String reminder;
         String location;
         String date;
         String description;
-        Client[] attendees;
         string teamID;
         int eventID;
 
 
-        public Event(String t, String st, String et, String r, String l, String d, String ds, string tm = null)
+        public Event(String t, String st, String et, String l, String d, String ds, string tm = null)
         {
             title = t;
             startTime = st;
             endTime = et;
-            reminder = r;
             location = l;
             date = d;
             description = ds;
@@ -57,12 +50,11 @@ namespace Individual_Project
         }
 
 
-        public void updateEventValue(String t, String st, String et, String r, String l, String d, String ds, string tm = null)
+        public void updateEventValue(String t, String st, String et, String l, String d, String ds, string tm = null)
         {
             title = t;
             startTime = st;
             endTime = et;
-            reminder = r;
             location = l;
             date = d;
             description = ds;
@@ -76,11 +68,6 @@ namespace Individual_Project
         public String getEndTime()
         {
             return endTime;
-        }
-
-        public String getReminder()
-        {
-            return reminder;
         }
 
         public String getLocation()
@@ -154,9 +141,5 @@ namespace Individual_Project
             }
             return eventList;  //return the event list
         }
-
-
-
-
     }
 }

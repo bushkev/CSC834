@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -60,6 +61,43 @@ namespace Individual_Project
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
                 cmd.Parameters.AddWithValue("@eventID", currentEvent.getEventID());
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"error: {ex.Message}");
+                success = false;
+            }
+            conn.Close();
+
+            return success;
+        }
+
+        public static bool EditEvent(Event currentEvent, int eventID)
+        {
+            bool success = true;
+            MySqlConnection conn = new MySqlConnection(GlobalVariables.ConnString);
+
+            try
+            {
+                conn.Open();
+
+                string sqlQuery = $"Update {GlobalVariables.EventsTableName} " +
+                    $" Set eventName = @eventName," +
+                    $" startTime = @startTime," +
+                    $" endTime = @endTime," +
+                    $" location = @location," +
+                    $" description = @description" +
+                    $" Where eventID = @eventID";
+
+                MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
+                cmd.Parameters.AddWithValue("@eventName", currentEvent.getTitle());
+                cmd.Parameters.AddWithValue("@startTime", currentEvent.getStartTime());
+                cmd.Parameters.AddWithValue("@endTime", currentEvent.getEndTime());
+                cmd.Parameters.AddWithValue("@location", currentEvent.getLocation());
+                cmd.Parameters.AddWithValue("@description", currentEvent.getDescription());
+                cmd.Parameters.AddWithValue("@eventID", eventID);
 
                 cmd.ExecuteNonQuery();
             }

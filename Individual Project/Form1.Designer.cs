@@ -1,6 +1,6 @@
 ﻿namespace Individual_Project
 {
-    partial class Form1
+    partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -29,76 +29,64 @@
         private void InitializeComponent()
         {
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.listBoxEventsDaily = new System.Windows.Forms.ListBox();
+            this.labelEventsOn = new System.Windows.Forms.Label();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonEdit = new System.Windows.Forms.Button();
+            this.buttonViewMonthly = new System.Windows.Forms.Button();
             this.panelEvent = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.button14 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.comboBoxEndTime = new System.Windows.Forms.ComboBox();
+            this.buttonTeamEvent = new System.Windows.Forms.Button();
+            this.comboBoxStartTime = new System.Windows.Forms.ComboBox();
+            this.buttonCancelEvent = new System.Windows.Forms.Button();
+            this.buttonSaveEvent = new System.Windows.Forms.Button();
             this.textBoxEventDescription = new System.Windows.Forms.TextBox();
-            this.textBoxEventAttendees = new System.Windows.Forms.TextBox();
             this.textBoxEventLocation = new System.Windows.Forms.TextBox();
-            this.textBoxEventRemind = new System.Windows.Forms.TextBox();
             this.textBoxEventEndTime = new System.Windows.Forms.TextBox();
             this.textBoxEventStartTime = new System.Windows.Forms.TextBox();
             this.textBoxEventTitle = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.panelDeleteConfirm = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelDescription = new System.Windows.Forms.Label();
+            this.labelLocation = new System.Windows.Forms.Label();
+            this.labelEndTime = new System.Windows.Forms.Label();
+            this.labelStartTime = new System.Windows.Forms.Label();
+            this.labelTitle = new System.Windows.Forms.Label();
             this.panelConflictError = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.buttonContinueConflict = new System.Windows.Forms.Button();
+            this.buttonCancelConfict = new System.Windows.Forms.Button();
+            this.labelConflictErrorMessage = new System.Windows.Forms.Label();
+            this.labelConflictErrorTitle = new System.Windows.Forms.Label();
             this.panelLogin = new System.Windows.Forms.Panel();
             this.panelLoginError = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.buttonTryAgainLogin = new System.Windows.Forms.Button();
+            this.labelErrorMessage = new System.Windows.Forms.Label();
+            this.labelLoginErrorTitle = new System.Windows.Forms.Label();
+            this.labelEnterCreds = new System.Windows.Forms.Label();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.labelUserName = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUserName = new System.Windows.Forms.TextBox();
-            this.button12 = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.comboBoxMonth = new System.Windows.Forms.ComboBox();
+            this.labelDeleteConfirm = new System.Windows.Forms.Label();
+            this.buttonCancelDelete = new System.Windows.Forms.Button();
             this.panelEventTeam = new System.Windows.Forms.Panel();
-            this.panelTimeSlotChoice = new System.Windows.Forms.Panel();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.button16 = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.buttonCancelTeamEvent = new System.Windows.Forms.Button();
+            this.comboBoxDurationTeamEvent = new System.Windows.Forms.ComboBox();
+            this.buttonSaveTeamEvent = new System.Windows.Forms.Button();
+            this.labelDuration = new System.Windows.Forms.Label();
+            this.checkedListBoxTeamTime = new System.Windows.Forms.CheckedListBox();
+            this.dateTimePickerTeamEvent = new System.Windows.Forms.DateTimePicker();
+            this.labelEventForm = new System.Windows.Forms.Label();
+            this.buttonConfirmDelete = new System.Windows.Forms.Button();
+            this.panelDeleteConfirm = new System.Windows.Forms.Panel();
             this.panelEvent.SuspendLayout();
-            this.panelDeleteConfirm.SuspendLayout();
             this.panelConflictError.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelLoginError.SuspendLayout();
             this.panelEventTeam.SuspendLayout();
-            this.panelTimeSlotChoice.SuspendLayout();
+            this.panelDeleteConfirm.SuspendLayout();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -109,185 +97,155 @@
             this.monthCalendar1.Visible = false;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.MonthCalendar1_DateChanged);
             // 
-            // listBox1
+            // listBoxEventsDaily
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(276, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(207, 368);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.Visible = false;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.ListBox1_SelectedIndexChanged);
+            this.listBoxEventsDaily.FormattingEnabled = true;
+            this.listBoxEventsDaily.Location = new System.Drawing.Point(276, 43);
+            this.listBoxEventsDaily.Name = "listBoxEventsDaily";
+            this.listBoxEventsDaily.Size = new System.Drawing.Size(207, 368);
+            this.listBoxEventsDaily.TabIndex = 1;
+            this.listBoxEventsDaily.Visible = false;
+            this.listBoxEventsDaily.SelectedIndexChanged += new System.EventHandler(this.ListBoxEventsDaily_SelectedIndexChanged);
             // 
-            // label1
+            // labelEventsOn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Events on 02/03/2020";
-            this.label1.Visible = false;
+            this.labelEventsOn.AutoSize = true;
+            this.labelEventsOn.Location = new System.Drawing.Point(276, 9);
+            this.labelEventsOn.Name = "labelEventsOn";
+            this.labelEventsOn.Size = new System.Drawing.Size(116, 13);
+            this.labelEventsOn.TabIndex = 2;
+            this.labelEventsOn.Text = "Events on 02/03/2020";
+            this.labelEventsOn.Visible = false;
             // 
-            // button1
+            // buttonAdd
             // 
-            this.button1.Location = new System.Drawing.Point(12, 253);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Add Event";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.buttonAdd.Location = new System.Drawing.Point(9, 195);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(227, 40);
+            this.buttonAdd.TabIndex = 3;
+            this.buttonAdd.Text = "Add Event";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Visible = false;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
-            // button2
+            // buttonDelete
             // 
-            this.button2.Location = new System.Drawing.Point(12, 282);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Delete Event";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonDelete.Location = new System.Drawing.Point(9, 241);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(227, 40);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Text = "Delete Event";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Visible = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // button3
+            // buttonEdit
             // 
-            this.button3.Location = new System.Drawing.Point(12, 340);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(116, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "View Event";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonEdit.Location = new System.Drawing.Point(9, 287);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(227, 40);
+            this.buttonEdit.TabIndex = 6;
+            this.buttonEdit.Text = "Edit Event";
+            this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Visible = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // button4
+            // buttonViewMonthly
             // 
-            this.button4.Location = new System.Drawing.Point(12, 311);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(116, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Edit Event";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(12, 369);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(116, 23);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "View Monthly Events";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Visible = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.buttonViewMonthly.Location = new System.Drawing.Point(9, 333);
+            this.buttonViewMonthly.Name = "buttonViewMonthly";
+            this.buttonViewMonthly.Size = new System.Drawing.Size(227, 40);
+            this.buttonViewMonthly.TabIndex = 7;
+            this.buttonViewMonthly.Text = "View Monthly Events";
+            this.buttonViewMonthly.UseVisualStyleBackColor = true;
+            this.buttonViewMonthly.Visible = false;
+            this.buttonViewMonthly.Click += new System.EventHandler(this.buttonViewMonthly_Click);
             // 
             // panelEvent
             // 
-            this.panelEvent.Controls.Add(this.comboBox2);
-            this.panelEvent.Controls.Add(this.button14);
-            this.panelEvent.Controls.Add(this.comboBox1);
-            this.panelEvent.Controls.Add(this.button7);
-            this.panelEvent.Controls.Add(this.button6);
+            this.panelEvent.Controls.Add(this.comboBoxEndTime);
+            this.panelEvent.Controls.Add(this.buttonTeamEvent);
+            this.panelEvent.Controls.Add(this.comboBoxStartTime);
+            this.panelEvent.Controls.Add(this.buttonCancelEvent);
+            this.panelEvent.Controls.Add(this.buttonSaveEvent);
             this.panelEvent.Controls.Add(this.textBoxEventDescription);
-            this.panelEvent.Controls.Add(this.textBoxEventAttendees);
             this.panelEvent.Controls.Add(this.textBoxEventLocation);
-            this.panelEvent.Controls.Add(this.textBoxEventRemind);
             this.panelEvent.Controls.Add(this.textBoxEventEndTime);
             this.panelEvent.Controls.Add(this.textBoxEventStartTime);
             this.panelEvent.Controls.Add(this.textBoxEventTitle);
-            this.panelEvent.Controls.Add(this.label8);
-            this.panelEvent.Controls.Add(this.label7);
-            this.panelEvent.Controls.Add(this.label6);
-            this.panelEvent.Controls.Add(this.label5);
-            this.panelEvent.Controls.Add(this.label4);
-            this.panelEvent.Controls.Add(this.label3);
-            this.panelEvent.Controls.Add(this.label2);
-            this.panelEvent.Location = new System.Drawing.Point(537, 43);
+            this.panelEvent.Controls.Add(this.labelDescription);
+            this.panelEvent.Controls.Add(this.labelLocation);
+            this.panelEvent.Controls.Add(this.labelEndTime);
+            this.panelEvent.Controls.Add(this.labelStartTime);
+            this.panelEvent.Controls.Add(this.labelTitle);
+            this.panelEvent.Location = new System.Drawing.Point(534, 36);
             this.panelEvent.Name = "panelEvent";
-            this.panelEvent.Size = new System.Drawing.Size(334, 468);
+            this.panelEvent.Size = new System.Drawing.Size(334, 426);
             this.panelEvent.TabIndex = 8;
             this.panelEvent.Visible = false;
             // 
-            // comboBox2
+            // comboBoxEndTime
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(97, 58);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(234, 21);
-            this.comboBox2.TabIndex = 15;
-            this.comboBox2.Visible = false;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBoxEndTime.FormattingEnabled = true;
+            this.comboBoxEndTime.Location = new System.Drawing.Point(97, 58);
+            this.comboBoxEndTime.Name = "comboBoxEndTime";
+            this.comboBoxEndTime.Size = new System.Drawing.Size(226, 21);
+            this.comboBoxEndTime.TabIndex = 15;
+            this.comboBoxEndTime.Visible = false;
             // 
-            // button14
+            // buttonTeamEvent
             // 
-            this.button14.Location = new System.Drawing.Point(81, 432);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(190, 23);
-            this.button14.TabIndex = 21;
-            this.button14.Text = "Set Up Team Event";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.buttonTeamEvent.Location = new System.Drawing.Point(86, 385);
+            this.buttonTeamEvent.Name = "buttonTeamEvent";
+            this.buttonTeamEvent.Size = new System.Drawing.Size(190, 23);
+            this.buttonTeamEvent.TabIndex = 21;
+            this.buttonTeamEvent.Text = "Set Up Team Event";
+            this.buttonTeamEvent.UseVisualStyleBackColor = true;
+            this.buttonTeamEvent.Click += new System.EventHandler(this.buttonTeamEvent_Click);
             // 
-            // comboBox1
+            // comboBoxStartTime
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(97, 31);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(234, 21);
-            this.comboBox1.TabIndex = 10;
-            this.comboBox1.Visible = false;
+            this.comboBoxStartTime.FormattingEnabled = true;
+            this.comboBoxStartTime.Location = new System.Drawing.Point(97, 31);
+            this.comboBoxStartTime.Name = "comboBoxStartTime";
+            this.comboBoxStartTime.Size = new System.Drawing.Size(226, 21);
+            this.comboBoxStartTime.TabIndex = 10;
+            this.comboBoxStartTime.Visible = false;
             // 
-            // button7
+            // buttonCancelEvent
             // 
-            this.button7.Location = new System.Drawing.Point(192, 400);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(116, 23);
-            this.button7.TabIndex = 14;
-            this.button7.Text = "Cancel";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.Button7_Click);
+            this.buttonCancelEvent.Location = new System.Drawing.Point(197, 353);
+            this.buttonCancelEvent.Name = "buttonCancelEvent";
+            this.buttonCancelEvent.Size = new System.Drawing.Size(116, 23);
+            this.buttonCancelEvent.TabIndex = 14;
+            this.buttonCancelEvent.Text = "Cancel";
+            this.buttonCancelEvent.UseVisualStyleBackColor = true;
+            this.buttonCancelEvent.Click += new System.EventHandler(this.ButtonCancelEvent_Click);
             // 
-            // button6
+            // buttonSaveEvent
             // 
-            this.button6.Location = new System.Drawing.Point(34, 400);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(116, 23);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "Save";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            this.buttonSaveEvent.Location = new System.Drawing.Point(39, 353);
+            this.buttonSaveEvent.Name = "buttonSaveEvent";
+            this.buttonSaveEvent.Size = new System.Drawing.Size(116, 23);
+            this.buttonSaveEvent.TabIndex = 9;
+            this.buttonSaveEvent.Text = "Save";
+            this.buttonSaveEvent.UseVisualStyleBackColor = true;
+            this.buttonSaveEvent.Click += new System.EventHandler(this.ButtonSaveEvent_Click);
             // 
             // textBoxEventDescription
             // 
-            this.textBoxEventDescription.Location = new System.Drawing.Point(21, 193);
+            this.textBoxEventDescription.Location = new System.Drawing.Point(18, 139);
             this.textBoxEventDescription.Multiline = true;
             this.textBoxEventDescription.Name = "textBoxEventDescription";
             this.textBoxEventDescription.Size = new System.Drawing.Size(305, 202);
             this.textBoxEventDescription.TabIndex = 13;
             // 
-            // textBoxEventAttendees
-            // 
-            this.textBoxEventAttendees.Location = new System.Drawing.Point(97, 136);
-            this.textBoxEventAttendees.Name = "textBoxEventAttendees";
-            this.textBoxEventAttendees.Size = new System.Drawing.Size(190, 20);
-            this.textBoxEventAttendees.TabIndex = 12;
-            // 
             // textBoxEventLocation
             // 
-            this.textBoxEventLocation.Location = new System.Drawing.Point(97, 110);
+            this.textBoxEventLocation.Location = new System.Drawing.Point(97, 86);
             this.textBoxEventLocation.Name = "textBoxEventLocation";
             this.textBoxEventLocation.Size = new System.Drawing.Size(190, 20);
             this.textBoxEventLocation.TabIndex = 11;
-            // 
-            // textBoxEventRemind
-            // 
-            this.textBoxEventRemind.Location = new System.Drawing.Point(97, 84);
-            this.textBoxEventRemind.Name = "textBoxEventRemind";
-            this.textBoxEventRemind.Size = new System.Drawing.Size(190, 20);
-            this.textBoxEventRemind.TabIndex = 10;
             // 
             // textBoxEventEndTime
             // 
@@ -310,181 +268,113 @@
             this.textBoxEventTitle.Size = new System.Drawing.Size(190, 20);
             this.textBoxEventTitle.TabIndex = 7;
             // 
-            // label8
+            // labelDescription
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(18, 87);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Reminder";
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(15, 113);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelDescription.TabIndex = 5;
+            this.labelDescription.Text = "Description";
             // 
-            // label7
+            // labelLocation
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 167);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(60, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Description";
+            this.labelLocation.AutoSize = true;
+            this.labelLocation.Location = new System.Drawing.Point(15, 89);
+            this.labelLocation.Name = "labelLocation";
+            this.labelLocation.Size = new System.Drawing.Size(48, 13);
+            this.labelLocation.TabIndex = 3;
+            this.labelLocation.Text = "Location";
             // 
-            // label6
+            // labelEndTime
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 139);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Attendees";
+            this.labelEndTime.AutoSize = true;
+            this.labelEndTime.Location = new System.Drawing.Point(15, 61);
+            this.labelEndTime.Name = "labelEndTime";
+            this.labelEndTime.Size = new System.Drawing.Size(66, 13);
+            this.labelEndTime.TabIndex = 2;
+            this.labelEndTime.Text = "Ending Time";
             // 
-            // label5
+            // labelStartTime
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 113);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Location";
+            this.labelStartTime.AutoSize = true;
+            this.labelStartTime.Location = new System.Drawing.Point(15, 35);
+            this.labelStartTime.Name = "labelStartTime";
+            this.labelStartTime.Size = new System.Drawing.Size(69, 13);
+            this.labelStartTime.TabIndex = 1;
+            this.labelStartTime.Text = "Starting Time";
             // 
-            // label4
+            // labelTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Ending Time";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 35);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Starting Time";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Title";
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(9, 210);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(190, 17);
-            this.listBox2.TabIndex = 15;
-            this.listBox2.Visible = false;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
-            // 
-            // panelDeleteConfirm
-            // 
-            this.panelDeleteConfirm.Controls.Add(this.button9);
-            this.panelDeleteConfirm.Controls.Add(this.button8);
-            this.panelDeleteConfirm.Controls.Add(this.label9);
-            this.panelDeleteConfirm.Location = new System.Drawing.Point(537, 43);
-            this.panelDeleteConfirm.Name = "panelDeleteConfirm";
-            this.panelDeleteConfirm.Size = new System.Drawing.Size(334, 426);
-            this.panelDeleteConfirm.TabIndex = 16;
-            this.panelDeleteConfirm.Visible = false;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(119, 55);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "Confirm";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(119, 87);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "Cancel";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(51, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(211, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Are you sure you want to delete this event?";
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Location = new System.Drawing.Point(15, 9);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(27, 13);
+            this.labelTitle.TabIndex = 0;
+            this.labelTitle.Text = "Title";
             // 
             // panelConflictError
             // 
-            this.panelConflictError.Controls.Add(this.button11);
-            this.panelConflictError.Controls.Add(this.button10);
-            this.panelConflictError.Controls.Add(this.label11);
-            this.panelConflictError.Controls.Add(this.label10);
+            this.panelConflictError.Controls.Add(this.buttonContinueConflict);
+            this.panelConflictError.Controls.Add(this.buttonCancelConfict);
+            this.panelConflictError.Controls.Add(this.labelConflictErrorMessage);
+            this.panelConflictError.Controls.Add(this.labelConflictErrorTitle);
             this.panelConflictError.Location = new System.Drawing.Point(529, 46);
             this.panelConflictError.Name = "panelConflictError";
             this.panelConflictError.Size = new System.Drawing.Size(334, 426);
             this.panelConflictError.TabIndex = 17;
             this.panelConflictError.Visible = false;
             // 
-            // button11
+            // buttonContinueConflict
             // 
-            this.button11.Location = new System.Drawing.Point(119, 143);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 3;
-            this.button11.Text = "Continue";
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.buttonContinueConflict.Location = new System.Drawing.Point(119, 143);
+            this.buttonContinueConflict.Name = "buttonContinueConflict";
+            this.buttonContinueConflict.Size = new System.Drawing.Size(75, 23);
+            this.buttonContinueConflict.TabIndex = 3;
+            this.buttonContinueConflict.Text = "Continue";
+            this.buttonContinueConflict.UseVisualStyleBackColor = true;
+            this.buttonContinueConflict.Click += new System.EventHandler(this.buttonContinueConflict_Click);
             // 
-            // button10
+            // buttonCancelConfict
             // 
-            this.button10.Location = new System.Drawing.Point(119, 107);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 2;
-            this.button10.Text = "Cancel";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.buttonCancelConfict.Location = new System.Drawing.Point(119, 107);
+            this.buttonCancelConfict.Name = "buttonCancelConfict";
+            this.buttonCancelConfict.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelConfict.TabIndex = 2;
+            this.buttonCancelConfict.Text = "Cancel";
+            this.buttonCancelConfict.UseVisualStyleBackColor = true;
+            this.buttonCancelConfict.Click += new System.EventHandler(this.buttonCancelConfict_Click);
             // 
-            // label11
+            // labelConflictErrorMessage
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(26, 64);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(250, 16);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "This event conflicts with an existing event.";
+            this.labelConflictErrorMessage.AutoSize = true;
+            this.labelConflictErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConflictErrorMessage.Location = new System.Drawing.Point(26, 64);
+            this.labelConflictErrorMessage.Name = "labelConflictErrorMessage";
+            this.labelConflictErrorMessage.Size = new System.Drawing.Size(250, 16);
+            this.labelConflictErrorMessage.TabIndex = 1;
+            this.labelConflictErrorMessage.Text = "This event conflicts with an existing event.";
             // 
-            // label10
+            // labelConflictErrorTitle
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(122, 29);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 17);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "ERROR!";
+            this.labelConflictErrorTitle.AutoSize = true;
+            this.labelConflictErrorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConflictErrorTitle.ForeColor = System.Drawing.Color.Red;
+            this.labelConflictErrorTitle.Location = new System.Drawing.Point(122, 29);
+            this.labelConflictErrorTitle.Name = "labelConflictErrorTitle";
+            this.labelConflictErrorTitle.Size = new System.Drawing.Size(67, 17);
+            this.labelConflictErrorTitle.TabIndex = 0;
+            this.labelConflictErrorTitle.Text = "ERROR!";
             // 
             // panelLogin
             // 
             this.panelLogin.Controls.Add(this.panelLoginError);
-            this.panelLogin.Controls.Add(this.label14);
-            this.panelLogin.Controls.Add(this.label13);
-            this.panelLogin.Controls.Add(this.label12);
+            this.panelLogin.Controls.Add(this.labelEnterCreds);
+            this.panelLogin.Controls.Add(this.labelPassword);
+            this.panelLogin.Controls.Add(this.labelUserName);
             this.panelLogin.Controls.Add(this.textBoxPassword);
             this.panelLogin.Controls.Add(this.textBoxUserName);
-            this.panelLogin.Controls.Add(this.button12);
+            this.panelLogin.Controls.Add(this.buttonLogin);
             this.panelLogin.Location = new System.Drawing.Point(267, 146);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(375, 270);
@@ -492,77 +382,75 @@
             // 
             // panelLoginError
             // 
-            this.panelLoginError.Controls.Add(this.button13);
-            this.panelLoginError.Controls.Add(this.label16);
-            this.panelLoginError.Controls.Add(this.label15);
+            this.panelLoginError.Controls.Add(this.buttonTryAgainLogin);
+            this.panelLoginError.Controls.Add(this.labelErrorMessage);
+            this.panelLoginError.Controls.Add(this.labelLoginErrorTitle);
             this.panelLoginError.Location = new System.Drawing.Point(37, 43);
             this.panelLoginError.Name = "panelLoginError";
             this.panelLoginError.Size = new System.Drawing.Size(299, 187);
             this.panelLoginError.TabIndex = 19;
             this.panelLoginError.Visible = false;
             // 
-            // button13
+            // buttonTryAgainLogin
             // 
-            this.button13.Location = new System.Drawing.Point(106, 107);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 5;
-            this.button13.Text = "Try Again";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.buttonTryAgainLogin.Location = new System.Drawing.Point(106, 107);
+            this.buttonTryAgainLogin.Name = "buttonTryAgainLogin";
+            this.buttonTryAgainLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonTryAgainLogin.TabIndex = 5;
+            this.buttonTryAgainLogin.Text = "Try Again";
+            this.buttonTryAgainLogin.UseVisualStyleBackColor = true;
+            this.buttonTryAgainLogin.Click += new System.EventHandler(this.buttonTryAgainLogin_Click);
             // 
-            // label16
+            // labelErrorMessage
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(3, 69);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(272, 16);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Either the username or password is incorrect.";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
+            this.labelErrorMessage.AutoSize = true;
+            this.labelErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorMessage.Location = new System.Drawing.Point(3, 69);
+            this.labelErrorMessage.Name = "labelErrorMessage";
+            this.labelErrorMessage.Size = new System.Drawing.Size(272, 16);
+            this.labelErrorMessage.TabIndex = 4;
+            this.labelErrorMessage.Text = "Either the username or password is incorrect.";
             // 
-            // label15
+            // labelLoginErrorTitle
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(107, 30);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(67, 17);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "ERROR!";
+            this.labelLoginErrorTitle.AutoSize = true;
+            this.labelLoginErrorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelLoginErrorTitle.ForeColor = System.Drawing.Color.Red;
+            this.labelLoginErrorTitle.Location = new System.Drawing.Point(107, 30);
+            this.labelLoginErrorTitle.Name = "labelLoginErrorTitle";
+            this.labelLoginErrorTitle.Size = new System.Drawing.Size(67, 17);
+            this.labelLoginErrorTitle.TabIndex = 4;
+            this.labelLoginErrorTitle.Text = "ERROR!";
             // 
-            // label14
+            // labelEnterCreds
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(54, 59);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(266, 16);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Please enter your username and password.";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            this.labelEnterCreds.AutoSize = true;
+            this.labelEnterCreds.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEnterCreds.Location = new System.Drawing.Point(54, 59);
+            this.labelEnterCreds.Name = "labelEnterCreds";
+            this.labelEnterCreds.Size = new System.Drawing.Size(266, 16);
+            this.labelEnterCreds.TabIndex = 5;
+            this.labelEnterCreds.Text = "Please enter your username and password.";
             // 
-            // label13
+            // labelPassword
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(70, 131);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(53, 13);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Password";
+            this.labelPassword.AutoSize = true;
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPassword.Location = new System.Drawing.Point(70, 131);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(53, 13);
+            this.labelPassword.TabIndex = 4;
+            this.labelPassword.Text = "Password";
             // 
-            // label12
+            // labelUserName
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(70, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 13);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "Username";
+            this.labelUserName.AutoSize = true;
+            this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUserName.Location = new System.Drawing.Point(70, 97);
+            this.labelUserName.Name = "labelUserName";
+            this.labelUserName.Size = new System.Drawing.Size(55, 13);
+            this.labelUserName.TabIndex = 3;
+            this.labelUserName.Text = "Username";
             // 
             // textBoxPassword
             // 
@@ -581,20 +469,20 @@
             this.textBoxUserName.Size = new System.Drawing.Size(100, 20);
             this.textBoxUserName.TabIndex = 1;
             // 
-            // button12
+            // buttonLogin
             // 
-            this.button12.Location = new System.Drawing.Point(150, 166);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "Login";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.buttonLogin.Location = new System.Drawing.Point(150, 166);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(75, 23);
+            this.buttonLogin.TabIndex = 0;
+            this.buttonLogin.Text = "Login";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // comboBox3
+            // comboBoxMonth
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboBoxMonth.FormattingEnabled = true;
+            this.comboBoxMonth.Items.AddRange(new object[] {
             "2023",
             "January",
             "February",
@@ -622,185 +510,165 @@
             "October",
             "November",
             "December"});
-            this.comboBox3.Location = new System.Drawing.Point(500, 6);
-            this.comboBox3.MaxDropDownItems = 12;
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 21);
-            this.comboBox3.TabIndex = 20;
-            this.comboBox3.Text = "Select Month";
-            this.comboBox3.Visible = false;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBoxMonth.Location = new System.Drawing.Point(500, 6);
+            this.comboBoxMonth.MaxDropDownItems = 12;
+            this.comboBoxMonth.Name = "comboBoxMonth";
+            this.comboBoxMonth.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMonth.TabIndex = 20;
+            this.comboBoxMonth.Text = "Select Month";
+            this.comboBoxMonth.Visible = false;
+            this.comboBoxMonth.SelectedIndexChanged += new System.EventHandler(this.comboBoxMonth_SelectedIndexChanged);
             // 
-            // label17
+            // labelDeleteConfirm
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(98, 9);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 16);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Team Event Form";
+            this.labelDeleteConfirm.AutoSize = true;
+            this.labelDeleteConfirm.Location = new System.Drawing.Point(51, 16);
+            this.labelDeleteConfirm.Name = "labelDeleteConfirm";
+            this.labelDeleteConfirm.Size = new System.Drawing.Size(211, 13);
+            this.labelDeleteConfirm.TabIndex = 1;
+            this.labelDeleteConfirm.Text = "Are you sure you want to delete this event?";
+            // 
+            // buttonCancelDelete
+            // 
+            this.buttonCancelDelete.Location = new System.Drawing.Point(119, 87);
+            this.buttonCancelDelete.Name = "buttonCancelDelete";
+            this.buttonCancelDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelDelete.TabIndex = 2;
+            this.buttonCancelDelete.Text = "Cancel";
+            this.buttonCancelDelete.UseVisualStyleBackColor = true;
+            this.buttonCancelDelete.Click += new System.EventHandler(this.buttonCancelDelete_Click);
             // 
             // panelEventTeam
             // 
-            this.panelEventTeam.Controls.Add(this.panelTimeSlotChoice);
-            this.panelEventTeam.Controls.Add(this.button16);
-            this.panelEventTeam.Controls.Add(this.listBox3);
-            this.panelEventTeam.Controls.Add(this.button15);
-            this.panelEventTeam.Controls.Add(this.comboBox4);
-            this.panelEventTeam.Controls.Add(this.label18);
-            this.panelEventTeam.Controls.Add(this.dateTimePicker1);
-            this.panelEventTeam.Controls.Add(this.label17);
+            this.panelEventTeam.Controls.Add(this.buttonCancelTeamEvent);
+            this.panelEventTeam.Controls.Add(this.comboBoxDurationTeamEvent);
+            this.panelEventTeam.Controls.Add(this.buttonSaveTeamEvent);
+            this.panelEventTeam.Controls.Add(this.labelDuration);
+            this.panelEventTeam.Controls.Add(this.checkedListBoxTeamTime);
+            this.panelEventTeam.Controls.Add(this.dateTimePickerTeamEvent);
+            this.panelEventTeam.Controls.Add(this.labelEventForm);
             this.panelEventTeam.Location = new System.Drawing.Point(555, 33);
             this.panelEventTeam.Name = "panelEventTeam";
-            this.panelEventTeam.Size = new System.Drawing.Size(338, 475);
+            this.panelEventTeam.Size = new System.Drawing.Size(338, 368);
             this.panelEventTeam.TabIndex = 22;
             this.panelEventTeam.Visible = false;
             // 
-            // panelTimeSlotChoice
+            // buttonCancelTeamEvent
             // 
-            this.panelTimeSlotChoice.Controls.Add(this.button18);
-            this.panelTimeSlotChoice.Controls.Add(this.button17);
-            this.panelTimeSlotChoice.Controls.Add(this.checkedListBox1);
-            this.panelTimeSlotChoice.Controls.Add(this.label19);
-            this.panelTimeSlotChoice.Location = new System.Drawing.Point(21, 3);
-            this.panelTimeSlotChoice.Name = "panelTimeSlotChoice";
-            this.panelTimeSlotChoice.Size = new System.Drawing.Size(292, 383);
-            this.panelTimeSlotChoice.TabIndex = 23;
-            this.panelTimeSlotChoice.Visible = false;
+            this.buttonCancelTeamEvent.Location = new System.Drawing.Point(169, 301);
+            this.buttonCancelTeamEvent.Name = "buttonCancelTeamEvent";
+            this.buttonCancelTeamEvent.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelTeamEvent.TabIndex = 3;
+            this.buttonCancelTeamEvent.Text = "Cancel";
+            this.buttonCancelTeamEvent.UseVisualStyleBackColor = true;
+            this.buttonCancelTeamEvent.Click += new System.EventHandler(this.buttonCancelTeamEvent_Click);
             // 
-            // button18
+            // comboBoxDurationTeamEvent
             // 
-            this.button18.Location = new System.Drawing.Point(144, 206);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 3;
-            this.button18.Text = "Cancel";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(47, 206);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
-            this.button17.TabIndex = 2;
-            this.button17.Text = "Save";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "08:00 - 10:00",
-            "12:00 - 14:00",
-            "14:00 - 16:00"});
-            this.checkedListBox1.Location = new System.Drawing.Point(85, 36);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(102, 139);
-            this.checkedListBox1.TabIndex = 1;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(75, 7);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(127, 16);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Possible Time Slots";
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(79, 360);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(165, 23);
-            this.button16.TabIndex = 27;
-            this.button16.Text = "Find Possible Time Slots";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // listBox3
-            // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Items.AddRange(new object[] {
-            "Team Member 1",
-            "Team Member 2",
-            "Team Member 3"});
-            this.listBox3.Location = new System.Drawing.Point(79, 183);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(165, 147);
-            this.listBox3.TabIndex = 26;
-            // 
-            // button15
-            // 
-            this.button15.Location = new System.Drawing.Point(101, 139);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(117, 23);
-            this.button15.TabIndex = 25;
-            this.button15.Text = "Add Member";
-            this.button15.UseVisualStyleBackColor = true;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.comboBoxDurationTeamEvent.FormattingEnabled = true;
+            this.comboBoxDurationTeamEvent.Items.AddRange(new object[] {
             "15 minutes",
             "30 minutes",
             "1 hour",
             "2 hours"});
-            this.comboBox4.Location = new System.Drawing.Point(142, 89);
-            this.comboBox4.MaxDropDownItems = 4;
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 21);
-            this.comboBox4.TabIndex = 24;
-            this.comboBox4.Text = "15 minutes";
+            this.comboBoxDurationTeamEvent.Location = new System.Drawing.Point(142, 89);
+            this.comboBoxDurationTeamEvent.MaxDropDownItems = 4;
+            this.comboBoxDurationTeamEvent.Name = "comboBoxDurationTeamEvent";
+            this.comboBoxDurationTeamEvent.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDurationTeamEvent.TabIndex = 24;
+            this.comboBoxDurationTeamEvent.Text = "15 minutes";
             // 
-            // label18
+            // buttonSaveTeamEvent
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(60, 92);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(47, 13);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Duration";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
+            this.buttonSaveTeamEvent.Location = new System.Drawing.Point(72, 301);
+            this.buttonSaveTeamEvent.Name = "buttonSaveTeamEvent";
+            this.buttonSaveTeamEvent.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveTeamEvent.TabIndex = 2;
+            this.buttonSaveTeamEvent.Text = "Save";
+            this.buttonSaveTeamEvent.UseVisualStyleBackColor = true;
+            this.buttonSaveTeamEvent.Click += new System.EventHandler(this.buttonSaveTeamEvent_Click);
             // 
-            // dateTimePicker1
+            // labelDuration
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(63, 45);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 22;
+            this.labelDuration.AutoSize = true;
+            this.labelDuration.Location = new System.Drawing.Point(60, 92);
+            this.labelDuration.Name = "labelDuration";
+            this.labelDuration.Size = new System.Drawing.Size(47, 13);
+            this.labelDuration.TabIndex = 23;
+            this.labelDuration.Text = "Duration";
             // 
-            // Form1
+            // checkedListBoxTeamTime
+            // 
+            this.checkedListBoxTeamTime.FormattingEnabled = true;
+            this.checkedListBoxTeamTime.Items.AddRange(new object[] {
+            "08:00 - 10:00",
+            "12:00 - 14:00",
+            "14:00 - 16:00"});
+            this.checkedListBoxTeamTime.Location = new System.Drawing.Point(110, 131);
+            this.checkedListBoxTeamTime.Name = "checkedListBoxTeamTime";
+            this.checkedListBoxTeamTime.Size = new System.Drawing.Size(102, 139);
+            this.checkedListBoxTeamTime.TabIndex = 1;
+            // 
+            // dateTimePickerTeamEvent
+            // 
+            this.dateTimePickerTeamEvent.Location = new System.Drawing.Point(63, 45);
+            this.dateTimePickerTeamEvent.Name = "dateTimePickerTeamEvent";
+            this.dateTimePickerTeamEvent.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerTeamEvent.TabIndex = 22;
+            // 
+            // labelEventForm
+            // 
+            this.labelEventForm.AutoSize = true;
+            this.labelEventForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEventForm.Location = new System.Drawing.Point(98, 9);
+            this.labelEventForm.Name = "labelEventForm";
+            this.labelEventForm.Size = new System.Drawing.Size(114, 16);
+            this.labelEventForm.TabIndex = 21;
+            this.labelEventForm.Text = "Team Event Form";
+            // 
+            // buttonConfirmDelete
+            // 
+            this.buttonConfirmDelete.Location = new System.Drawing.Point(119, 55);
+            this.buttonConfirmDelete.Name = "buttonConfirmDelete";
+            this.buttonConfirmDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonConfirmDelete.TabIndex = 3;
+            this.buttonConfirmDelete.Text = "Confirm";
+            this.buttonConfirmDelete.UseVisualStyleBackColor = true;
+            this.buttonConfirmDelete.Click += new System.EventHandler(this.buttonConfirmDelete_Click);
+            // 
+            // panelDeleteConfirm
+            // 
+            this.panelDeleteConfirm.Controls.Add(this.buttonConfirmDelete);
+            this.panelDeleteConfirm.Controls.Add(this.buttonCancelDelete);
+            this.panelDeleteConfirm.Controls.Add(this.labelDeleteConfirm);
+            this.panelDeleteConfirm.Location = new System.Drawing.Point(537, 43);
+            this.panelDeleteConfirm.Name = "panelDeleteConfirm";
+            this.panelDeleteConfirm.Size = new System.Drawing.Size(334, 426);
+            this.panelDeleteConfirm.TabIndex = 16;
+            this.panelDeleteConfirm.Visible = false;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 558);
+            this.ClientSize = new System.Drawing.Size(919, 486);
             this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.panelEventTeam);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBoxMonth);
             this.Controls.Add(this.panelLogin);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.buttonViewMonthly);
+            this.Controls.Add(this.buttonEdit);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonAdd);
+            this.Controls.Add(this.labelEventsOn);
+            this.Controls.Add(this.listBoxEventsDaily);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panelDeleteConfirm);
             this.Controls.Add(this.panelConflictError);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Personal Calendar";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panelEvent.ResumeLayout(false);
             this.panelEvent.PerformLayout();
-            this.panelDeleteConfirm.ResumeLayout(false);
-            this.panelDeleteConfirm.PerformLayout();
             this.panelConflictError.ResumeLayout(false);
             this.panelConflictError.PerformLayout();
             this.panelLogin.ResumeLayout(false);
@@ -809,8 +677,8 @@
             this.panelLoginError.PerformLayout();
             this.panelEventTeam.ResumeLayout(false);
             this.panelEventTeam.PerformLayout();
-            this.panelTimeSlotChoice.ResumeLayout(false);
-            this.panelTimeSlotChoice.PerformLayout();
+            this.panelDeleteConfirm.ResumeLayout(false);
+            this.panelDeleteConfirm.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -819,69 +687,58 @@
         #endregion
 
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ListBox listBoxEventsDaily;
+        private System.Windows.Forms.Label labelEventsOn;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonEdit;
+        private System.Windows.Forms.Button buttonViewMonthly;
         private System.Windows.Forms.Panel panelEvent;
         private System.Windows.Forms.TextBox textBoxEventDescription;
-        private System.Windows.Forms.TextBox textBoxEventAttendees;
         private System.Windows.Forms.TextBox textBoxEventLocation;
-        private System.Windows.Forms.TextBox textBoxEventRemind;
         private System.Windows.Forms.TextBox textBoxEventStartTime;
         private System.Windows.Forms.TextBox textBoxEventTitle;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.Label labelLocation;
+        private System.Windows.Forms.Label labelEndTime;
+        private System.Windows.Forms.Label labelStartTime;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Button buttonCancelEvent;
+        private System.Windows.Forms.Button buttonSaveEvent;
         private System.Windows.Forms.TextBox textBoxEventEndTime;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Panel panelDeleteConfirm;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.ComboBox comboBoxStartTime;
+        private System.Windows.Forms.ComboBox comboBoxEndTime;
         private System.Windows.Forms.Panel panelConflictError;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonContinueConflict;
+        private System.Windows.Forms.Button buttonCancelConfict;
+        private System.Windows.Forms.Label labelConflictErrorMessage;
+        private System.Windows.Forms.Label labelConflictErrorTitle;
         private System.Windows.Forms.Panel panelLogin;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUserName;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Label labelUserName;
+        private System.Windows.Forms.Label labelEnterCreds;
         private System.Windows.Forms.Panel panelLoginError;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button buttonTryAgainLogin;
+        private System.Windows.Forms.Label labelErrorMessage;
+        private System.Windows.Forms.Label labelLoginErrorTitle;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox comboBoxMonth;
+        private System.Windows.Forms.Button buttonTeamEvent;
+        private System.Windows.Forms.Label labelDeleteConfirm;
+        private System.Windows.Forms.Button buttonCancelDelete;
         private System.Windows.Forms.Panel panelEventTeam;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Panel panelTimeSlotChoice;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.Button buttonCancelTeamEvent;
+        private System.Windows.Forms.ComboBox comboBoxDurationTeamEvent;
+        private System.Windows.Forms.Button buttonSaveTeamEvent;
+        private System.Windows.Forms.Label labelDuration;
+        private System.Windows.Forms.CheckedListBox checkedListBoxTeamTime;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTeamEvent;
+        private System.Windows.Forms.Label labelEventForm;
+        private System.Windows.Forms.Button buttonConfirmDelete;
+        private System.Windows.Forms.Panel panelDeleteConfirm;
     }
 }
 
