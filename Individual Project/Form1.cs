@@ -392,8 +392,9 @@ namespace Individual_Project
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
             buttonAdd.BackColor = DefaultBackColor;
-            buttonEdit.BackColor = DefaultBackColor;            
-           
+            buttonEdit.BackColor = DefaultBackColor;
+            panelTimeSlotChoice.Visible = false;
+
             if (eList.Count != 0 && listBoxEventsDaily.SelectedIndex >= 0)
             {
                 ListBoxEventsDaily_SelectedIndexChanged(sender, e);
@@ -423,6 +424,17 @@ namespace Individual_Project
                 string aString = currentEvent.getStartTime() + "  " + currentEvent.getTitle();
                 listBoxEventsDaily.Items.Add(aString);
             }
+        }
+
+        private void buttonAddMembers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonTimeSlots_Click(object sender, EventArgs e)
+        {
+            panelEventTeam.Visible = false;
+            panelTimeSlotChoice.Visible = true;
         }
     }
 }
