@@ -13,11 +13,11 @@ namespace Individual_Project
         String location;
         String date;
         String description;
-        string teamID;
+        string teamEventID;
         int eventID;
 
 
-        public Event(String t, String st, String et, String l, String d, String ds, string tm = null)
+        public Event(String t, String st, String et, String l, String d, String ds, string te = null)
         {
             title = t;
             startTime = st;
@@ -25,7 +25,7 @@ namespace Individual_Project
             location = l;
             date = d;
             description = ds;
-            teamID = tm;
+            teamEventID = te;
         }
 
         public Event()
@@ -50,7 +50,7 @@ namespace Individual_Project
         }
 
 
-        public void updateEventValue(String t, String st, String et, String l, String d, String ds, string tm = null)
+        public void updateEventValue(String t, String st, String et, String l, String d, String ds, string te = null)
         {
             title = t;
             startTime = st;
@@ -58,7 +58,7 @@ namespace Individual_Project
             location = l;
             date = d;
             description = ds;
-            teamID = tm;
+            teamEventID = te;
         }
         public String getStartTime()
         {
@@ -88,9 +88,9 @@ namespace Individual_Project
             return date;
         }
 
-        public string getTeamID()
+        public string getTeamEventID()
         {
-            return teamID;
+            return teamEventID;
         }
 
         public int getEventID()
@@ -134,7 +134,7 @@ namespace Individual_Project
                 newEvent.endTime = row["endTime"].ToString();
                 newEvent.description = row["description"].ToString();
                 newEvent.location = row["location"].ToString();
-                newEvent.teamID = row["teamID"].ToString();
+                newEvent.teamEventID = row["teamEventID"].ToString();
                 newEvent.eventID = Convert.ToInt32(row["eventID"]);
 
                 eventList.Add(newEvent);

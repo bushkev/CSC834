@@ -169,7 +169,7 @@ namespace Individual_Project
                 if (addEvent)
                 {
                     Modifications.AddEvent(workEvent, currentUser.ClientID);
-                    addEvent= false;
+                    addEvent = false;
                 }
                 else
                 {
@@ -253,7 +253,7 @@ namespace Individual_Project
             buttonDelete.BackColor = DefaultBackColor;
             panelDeleteConfirm.Visible = false;
 
-            if (Modifications.DeleteEvent(selectedEvent))
+            if (Modifications.DeleteEvent(selectedEvent.getEventID()))
             {
                 ViewEvents(selectedEvent.getDate());
             }
@@ -377,6 +377,8 @@ namespace Individual_Project
         private void buttonSaveTeamEvent_Click(object sender, EventArgs e)
         {
             //Save Potential Time Slots Button
+
+            //Modifications.AddTeamEvent(workEvent, currentUser.TeamID);
         }
 
         private void buttonCancelTeamEvent_Click(object sender, EventArgs e)
