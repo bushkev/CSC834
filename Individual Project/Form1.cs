@@ -140,7 +140,7 @@ namespace Individual_Project
             buttonAdd.Enabled = false;
             buttonDelete.Enabled = false;
             buttonEdit.Enabled = false;
-            buttonViewMonthly.Enabled = false;
+            buttonViewMonthly.Enabled = false; 
         }
 
         // Button that saves data for add and edit events.
@@ -173,7 +173,6 @@ namespace Individual_Project
                 }
                 else
                 {
-                    
                     Modifications.EditEvent(workEvent, selectedEvent.getEventID());
                 }
 
@@ -372,6 +371,9 @@ namespace Individual_Project
             buttonTeamEvent.Visible = false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
+
+            //Call to get unavailable times from the team.
+            //var temp = workEvent.GetTeamTimes(thisDate, currentUser.TeamID);
         }
 
         private void buttonSaveTeamEvent_Click(object sender, EventArgs e)

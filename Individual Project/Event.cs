@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Individual_Project
@@ -16,6 +17,7 @@ namespace Individual_Project
         string teamEventID;
         int eventID;
 
+        public Event() { }
 
         public Event(String t, String st, String et, String l, String d, String ds, string te = null)
         {
@@ -28,38 +30,7 @@ namespace Individual_Project
             teamEventID = te;
         }
 
-        public Event()
-        {
-
-        }
-
-        public bool checkConflict(ArrayList eList)
-        {
-            if (eList.Count == 0)
-                return true;
-            for (int i=0; i<eList.Count; i++)
-            {
-                Event thisEvent = (Event)eList[i];
-
-                if (startTime.CompareTo(thisEvent.getEndTime()) > 0 || endTime.CompareTo(thisEvent.getStartTime()) < 0)
-                    continue;
-                else
-                    return false;
-            }
-            return true;
-        }
-
-
-        public void updateEventValue(String t, String st, String et, String l, String d, String ds, string te = null)
-        {
-            title = t;
-            startTime = st;
-            endTime = et;
-            location = l;
-            date = d;
-            description = ds;
-            teamEventID = te;
-        }
+        #region getters
         public String getStartTime()
         {
             return startTime;
@@ -96,6 +67,35 @@ namespace Individual_Project
         public int getEventID()
         {
             return eventID;
+        }
+        #endregion
+
+        public bool checkConflict(ArrayList eList)
+        {
+            if (eList.Count == 0)
+                return true;
+            for (int i=0; i<eList.Count; i++)
+            {
+                Event thisEvent = (Event)eList[i];
+
+                if (startTime.CompareTo(thisEvent.getEndTime()) > 0 || endTime.CompareTo(thisEvent.getStartTime()) < 0)
+                    continue;
+                else
+                    return false;
+            }
+            return true;
+        }
+
+
+        public void updateEventValue(String t, String st, String et, String l, String d, String ds, string te = null)
+        {
+            title = t;
+            startTime = st;
+            endTime = et;
+            location = l;
+            date = d;
+            description = ds;
+            teamEventID = te;
         }
 
         public static ArrayList getEventList(string dateString, int clientID)
@@ -140,6 +140,44 @@ namespace Individual_Project
                 eventList.Add(newEvent);
             }
             return eventList;  //return the event list
+        }
+
+        public List<Tuple<string, string>> GetTeamTimes (string eventDate, int teamID)
+        {
+            List<Tuple<string, string>> busyTimes = new List<Tuple<string, string>>();
+            MySqlConnection conn = new MySqlConnection(GlobalVariables.ConnString);
+
+            try
+            {
+                conn.Open();
+
+                DataTable myTable = new DataTable();
+                string sqlQuerry = $"SELECT distinct startTime, endTime from bgcclients c" +
+                                    $" JOIN bgcevents e ON c.clientID = e.ClientID" +
+                                    $" Where teamID = @teamID" +
+                                    $" AND eventday = @date" +
+                                    $" ORDER BY startTime";
+
+                MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
+                cmd.Parameters.AddWithValue("@teamID", teamID);
+                cmd.Parameters.AddWithValue("@date", eventDate);
+
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(myTable);
+
+                foreach (DataRow row in myTable.Rows )
+                {
+                    var tuple = Tuple.Create(row["startTime"].ToString(), row["endTime"].ToString());
+                    busyTimes.Add(tuple);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"error: {ex.Message}");
+            }
+            conn.Close();
+
+            return busyTimes;
         }
     }
 }
