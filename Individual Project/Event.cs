@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Individual_Project
 {
-    class Event
+    public class Event
     {
         String title;
         String startTime;
@@ -18,10 +18,12 @@ namespace Individual_Project
         String location;
         String date;
         String description;
-        User[] attendees;
+        Client[] attendees;
+        string teamID;
+        int eventID;
 
 
-        public Event(String t, String st, String et, String r, String l, String d, String ds)
+        public Event(String t, String st, String et, String r, String l, String d, String ds, string tm = null)
         {
             title = t;
             startTime = st;
@@ -30,6 +32,7 @@ namespace Individual_Project
             location = l;
             date = d;
             description = ds;
+            teamID = tm;
         }
 
         public Event()
@@ -54,7 +57,7 @@ namespace Individual_Project
         }
 
 
-        public void updateEventValue(String t, String st, String et, String r, String l, String d, String ds)
+        public void updateEventValue(String t, String st, String et, String r, String l, String d, String ds, string tm = null)
         {
             title = t;
             startTime = st;
@@ -63,6 +66,7 @@ namespace Individual_Project
             location = l;
             date = d;
             description = ds;
+            teamID = tm;
         }
         public String getStartTime()
         {
@@ -92,41 +96,60 @@ namespace Individual_Project
         {
             return description;
         }
-        public static ArrayList getEventList(string dateString)
+        public String getDate()
+        {
+            return date;
+        }
+
+        public string getTeamID()
+        {
+            return teamID;
+        }
+
+        public int getEventID()
+        {
+            return eventID;
+        }
+
+        public static ArrayList getEventList(string dateString, int clientID)
         {
             ArrayList eventList = new ArrayList();  //a list to save the events
+
             //prepare an SQL query to retrieve all the events on the same, specified date
             DataTable myTable = new DataTable();
-            string connStr = "server=csitmariadb.eku.edu;user=student;database=csc340_db;port=3306;password=Maroon@21?;";
-            MySqlConnection conn = new MySqlConnection(connStr);
+            MySqlConnection conn = new MySqlConnection(GlobalVariables.ConnString);
             try
             {
-                Console.WriteLine("Connecting to MySQL...");
                 conn.Open();
-                string sql = "SELECT * FROM greeneEvents WHERE eventDay=@myDate ORDER BY startTime ASC";
+                string sql = $"SELECT * FROM {GlobalVariables.EventsTableName} " +
+                                $"WHERE eventDay=@myDate " +
+                                $"AND clientID=@clientID " +
+                                $"ORDER BY startTime ASC";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@myDate", dateString);
+                cmd.Parameters.AddWithValue("@clientID", clientID);
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
                 myAdapter.Fill(myTable);
-                Console.WriteLine("Table is ready.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
             conn.Close();
+
             //convert the retrieved data to events and save them to the list
             foreach (DataRow row in myTable.Rows)
             {
                 Event newEvent = new Event();
                 newEvent.title = row["eventname"].ToString();
-                newEvent.date = row["eventday"].ToString();
+                newEvent.date = ((DateTime) row["eventday"]).ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                 newEvent.startTime = row["startTime"].ToString();
                 newEvent.endTime = row["endTime"].ToString();
-                //newEvent.reminder = row["reminder"].ToString();
-                //newEvent.endTime = Int32.Parse(row["endTime"].ToString());
                 newEvent.description = row["description"].ToString();
                 newEvent.location = row["location"].ToString();
+                newEvent.teamID = row["teamID"].ToString();
+                newEvent.eventID = Convert.ToInt32(row["eventID"]);
+
                 eventList.Add(newEvent);
             }
             return eventList;  //return the event list

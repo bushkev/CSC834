@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Individual_Project
@@ -14,24 +8,12 @@ namespace Individual_Project
     public partial class Form1 : Form
     {
         ArrayList eList;
+        Client currentUser;
+        Event selectedEvent = new Event();
+
         public Form1()
         {
             InitializeComponent();
-            DateTime thisDay = DateTime.Today;
-            String dateString = thisDay.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            //dateString = dateString.Substring(0, 4) + "-" + dateString.Substring(4, 2) + "-" + dateString.Substring(6);
-            //Console.Out.WriteLine("dateString: " + dateString);
-            label1.Text = "Events on " + dateString;
-            eList = Event.getEventList(dateString);
-            button6.Visible = false;
-            button7.Visible = false;
-            //ListBox1_SelectedIndexChanged();
-            for (int i = 0; i < eList.Count; i++)
-            {
-                Event currentEvent = (Event)eList[i];
-                String aString = currentEvent.getStartTime() + "  " + currentEvent.getTitle();
-                listBox1.Items.Add(aString);
-            }
             initializeTimeSections();
         }
 
@@ -143,21 +125,12 @@ namespace Individual_Project
         {
             //Add Event Button
             button1.BackColor = Color.Red;
-            /*
-            panel1.Visible = true;
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
-            */
             emptyEventForm();
-            textBox2.Visible = false;
+
+            textBoxEventStartTime.Visible = false;
             comboBox1.Visible = true;
             comboBox1.SelectedIndex = 0;
-            textBox3.Visible = false;
+            textBoxEventEndTime.Visible = false;
             comboBox2.Visible = true;
             comboBox2.SelectedIndex = 0;
             button6.Visible = true;
@@ -172,13 +145,14 @@ namespace Individual_Project
         private void Button6_Click(object sender, EventArgs e)
         {
             String thisDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-            Event newEvent = new Event();
 
-            newEvent.updateEventValue(textBox1.Text, comboBox1.SelectedItem.ToString(), textBox3.Text,
-               textBox4.Text, textBox5.Text, thisDate, textBox7.Text);
+            //Todo: add logic to make sure start date is before end date. May want to create new error message.
+
+            Event newEvent = new Event(textBoxEventTitle.Text, comboBox1.SelectedItem.ToString(), comboBox2.SelectedItem.ToString(),
+               textBoxEventRemind.Text, textBoxEventLocation.Text, thisDate, textBoxEventDescription.Text);
             bool noConflict = newEvent.checkConflict(eList);
-            Console.WriteLine("Conflict = " + noConflict);
-            panel1.Visible = false;
+
+            panelEvent.Visible = false;
             button1.BackColor = DefaultBackColor;
             button4.BackColor = DefaultBackColor;
 
@@ -189,62 +163,57 @@ namespace Individual_Project
             button4.Enabled = true;
             button5.Enabled = true;
 
-            //TODO: add functionality for saving the event to the database and checking for conflicts
-
-            //For testing purposes enable error panel
-            panel3.Visible = true;
-            panel1.Visible = false;
+            if (noConflict)
+            {
+                if (Modifications.AddEvent(newEvent, currentUser.ClientID))
+                {
+                    {
+                        ViewEvents(thisDate);
+                    }
+                }
+            }
+            else
+            {
+                panelConflictError.Visible = true;
+                panelEvent.Visible = false;
+            }            
         }
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        //private void ListBox1_SelectedIndexChanged()
         {
-            Event currentEvent = (Event)eList[listBox1.SelectedIndex];
-            panel1.Visible = true;
-            textBox1.Text = currentEvent.getTitle();
-            textBox2.Text = currentEvent.getStartTime();
-            textBox3.Text = currentEvent.getEndTime();
-            textBox4.Text = currentEvent.getReminder();
-            textBox5.Text = currentEvent.getLocation();
-            textBox7.Text = currentEvent.getDescription();
+            selectedEvent = (Event)eList[listBox1.SelectedIndex];
+            panelEvent.Visible = true;
+            textBoxEventTitle.Text = selectedEvent.getTitle();
+            textBoxEventStartTime.Text = selectedEvent.getStartTime();
+            textBoxEventEndTime.Text = selectedEvent.getEndTime();
+            textBoxEventRemind.Text = selectedEvent.getReminder();
+            textBoxEventLocation.Text = selectedEvent.getLocation();
+            textBoxEventDescription.Text = selectedEvent.getDescription();
         }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            //Turn off panel 1 if selecting a different date
-            panel1.Visible = false;
-            //String thisDate = monthCalendar1.SelectionRange.Start.ToShortDateString();
+            //Turn off event panel if selecting a different date
+            panelEvent.Visible = false;
             String thisDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-            label1.Text = "Events on " + thisDate;
-            //label1.BackColor = Color.Yellow;
-            eList = Event.getEventList(thisDate);
-            button6.Visible = false;
-            button7.Visible = false;
-            //ListBox1_SelectedIndexChanged();
-            listBox1.Items.Clear();
-            for (int i = 0; i < eList.Count; i++)
-            {
-                Event currentEvent = (Event)eList[i];
-                String aString = currentEvent.getStartTime() + "  " + currentEvent.getEndTime() + "  " + currentEvent.getTitle();
-                listBox1.Items.Add(aString);
-            }
+            ViewEvents(thisDate);
         }
 
         private void emptyEventForm()
         {
-            panel1.Visible = true;
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
-            textBox6.Text = "";
-            textBox7.Text = "";
+            panelEvent.Visible = true;
+            textBoxEventTitle.Text = "";
+            textBoxEventStartTime.Text = "";
+            textBoxEventEndTime.Text = "";
+            textBoxEventRemind.Text = "";
+            textBoxEventLocation.Text = "";
+            textBoxEventAttendees.Text = "";
+            textBoxEventDescription.Text = "";
         }
         private void Button7_Click(object sender, EventArgs e)
         {
             //Cancel Button
-            panel1.Visible = false;
+            panelEvent.Visible = false;
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
@@ -254,17 +223,13 @@ namespace Individual_Project
             button4.BackColor = DefaultBackColor;
             button6.Visible = false;
             button7.Visible = false;
-            textBox2.Visible = true;
+            textBoxEventStartTime.Visible = true;
             comboBox1.Visible = false;
-            textBox3.Visible = true;
+            textBoxEventEndTime.Visible = true;
             comboBox2.Visible = false;
-            if (eList.Count != 0)
+            if (eList.Count != 0 && listBox1.SelectedIndex >= 0)
             {
                 ListBox1_SelectedIndexChanged(sender, e);
-            }
-            else
-            {
-                emptyEventForm();
             }
         }
 
@@ -281,9 +246,12 @@ namespace Individual_Project
         private void button2_Click(object sender, EventArgs e)
         {
             //Delete Event Button
-            button2.BackColor = Color.Red;
-            panel1.Visible = false;
-            panel2.Visible = true;
+            if (selectedEvent.getEventID() != 0)
+            {
+                button2.BackColor = Color.Red;
+                panelEvent.Visible = false;
+                panelDeleteConfirm.Visible = true;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -295,22 +263,26 @@ namespace Individual_Project
         {
             //Cancel deleting event button
             button2.BackColor = DefaultBackColor;
-            panel2.Visible = false;
+            panelDeleteConfirm.Visible = false;
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
             //Confirm deleting event button
             button2.BackColor = DefaultBackColor;
-            panel2.Visible = false;
-            //TODO: add functionality for deleting an event
+            panelDeleteConfirm.Visible = false;
+
+            if (Modifications.DeleteEvent(selectedEvent))
+            {
+                ViewEvents(selectedEvent.getDate());
+            }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             //Cancel add event after error button
-            panel1.Visible = false;
-            panel3.Visible = false;
+            panelEvent.Visible = false;
+            panelConflictError.Visible = false;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -320,10 +292,10 @@ namespace Individual_Project
 
             //Allow edits toEventForm();
             emptyEventForm();
-            textBox2.Visible = false;
+            textBoxEventStartTime.Visible = false;
             comboBox1.Visible = true;
             comboBox1.SelectedIndex = 0;
-            textBox3.Visible = false;
+            textBoxEventEndTime.Visible = false;
             comboBox2.Visible = true;
             comboBox2.SelectedIndex = 0;
             button6.Visible = true;
@@ -345,23 +317,39 @@ namespace Individual_Project
         private void button11_Click(object sender, EventArgs e)
         {
             //Continue after error button
-            panel1.Visible = true;
-            panel3.Visible = false;
+            panelEvent.Visible = true;
+            panelConflictError.Visible = false;
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
             //Login button
-            panel4.Visible = false;
-            monthCalendar1.Visible = true;
-            label1.Visible = true;
-            listBox1.Visible = true;
-            button1.Visible = true;
-            button2.Visible = true;
-            button4.Visible = true;
-            button5.Visible = true;
+            var userName = textBoxUserName.Text;
+            var password = textBoxPassword.Text;
 
-            //TODO: add functionality for checking password credentials
+            currentUser = new Client(userName, password);
+
+            if (currentUser.IsCredentialsGood)
+            {
+                panelLogin.Visible = false;
+                monthCalendar1.Visible = true;
+                label1.Visible = true;
+                listBox1.Visible = true;
+                button1.Visible = true;
+                button2.Visible = true;
+                button4.Visible = true;
+                button5.Visible = true;
+
+                if (!currentUser.IsManager) button14.Visible = false;
+
+                string todayDate = DateTime.Today.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                ViewEvents(todayDate);
+            }
+            else
+            {
+                panelLoginError.Visible = true;
+                textBoxPassword.Text= string.Empty;
+            }
         }
 
         private void label14_Click(object sender, EventArgs e)
@@ -372,7 +360,7 @@ namespace Individual_Project
         private void button13_Click(object sender, EventArgs e)
         {
             //Try Again Button
-            panel5.Visible = false;
+            panelLoginError.Visible = false;
         }
 
         private void label16_Click(object sender, EventArgs e)
@@ -413,8 +401,8 @@ namespace Individual_Project
         {
             //Set Up Team Event button
             button14.Visible = false;
-            panel6.Visible = true;
-            panel1.Visible = false;
+            panelEventTeam.Visible = true;
+            panelEvent.Visible = false;
         }
 
         private void label18_Click(object sender, EventArgs e)
@@ -425,14 +413,19 @@ namespace Individual_Project
         private void button16_Click(object sender, EventArgs e)
         {
             //Find Possible Time Slots Button            
-            panel7.Visible = true;
+            panelTimeSlotChoice.Visible = true;
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            //Save Potential Time Slots Button
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
             //Cancel Potential Time Slots Button
-            panel7.Visible = false;
-            panel6.Visible = false;
+            panelTimeSlotChoice.Visible = false;
+            panelEventTeam.Visible = false;
             button1.Enabled = true;
             button2.Enabled = true;
             button3.Enabled = true;
@@ -441,13 +434,24 @@ namespace Individual_Project
             button1.BackColor = DefaultBackColor;
             button4.BackColor = DefaultBackColor;            
            
-            if (eList.Count != 0)
+            if (eList.Count != 0 && listBox1.SelectedIndex >= 0)
             {
                 ListBox1_SelectedIndexChanged(sender, e);
             }
-            else
+        }
+
+        private void ViewEvents (string date)
+        {
+            label1.Text = "Events on " + date;
+            eList = Event.getEventList(date, currentUser.ClientID);
+            
+            listBox1.Items.Clear();
+
+            for (int i = 0; i < eList.Count; i++)
             {
-                emptyEventForm();
+                Event currentEvent = (Event)eList[i];
+                string aString = currentEvent.getStartTime() + "  " + currentEvent.getTitle();
+                listBox1.Items.Add(aString);
             }
         }
     }

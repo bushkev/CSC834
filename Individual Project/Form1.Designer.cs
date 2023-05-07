@@ -36,18 +36,19 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelEvent = new System.Windows.Forms.Panel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.button14 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxEventDescription = new System.Windows.Forms.TextBox();
+            this.textBoxEventAttendees = new System.Windows.Forms.TextBox();
+            this.textBoxEventLocation = new System.Windows.Forms.TextBox();
+            this.textBoxEventRemind = new System.Windows.Forms.TextBox();
+            this.textBoxEventEndTime = new System.Windows.Forms.TextBox();
+            this.textBoxEventStartTime = new System.Windows.Forms.TextBox();
+            this.textBoxEventTitle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,49 +57,48 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelDeleteConfirm = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelConflictError = new System.Windows.Forms.Panel();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panelLogin = new System.Windows.Forms.Panel();
+            this.panelLoginError = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.textBoxUserName = new System.Windows.Forms.TextBox();
             this.button12 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button14 = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.button15 = new System.Windows.Forms.Button();
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.button17 = new System.Windows.Forms.Button();
+            this.panelEventTeam = new System.Windows.Forms.Panel();
+            this.panelTimeSlotChoice = new System.Windows.Forms.Panel();
             this.button18 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.button17 = new System.Windows.Forms.Button();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.button16 = new System.Windows.Forms.Button();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panelEvent.SuspendLayout();
+            this.panelDeleteConfirm.SuspendLayout();
+            this.panelConflictError.SuspendLayout();
+            this.panelLogin.SuspendLayout();
+            this.panelLoginError.SuspendLayout();
+            this.panelEventTeam.SuspendLayout();
+            this.panelTimeSlotChoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -184,32 +184,32 @@
             this.button5.Visible = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // panel1
+            // panelEvent
             // 
-            this.panel1.Controls.Add(this.comboBox2);
-            this.panel1.Controls.Add(this.button14);
-            this.panel1.Controls.Add(this.comboBox1);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.textBox7);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(537, 43);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(334, 468);
-            this.panel1.TabIndex = 8;
-            this.panel1.Visible = false;
+            this.panelEvent.Controls.Add(this.comboBox2);
+            this.panelEvent.Controls.Add(this.button14);
+            this.panelEvent.Controls.Add(this.comboBox1);
+            this.panelEvent.Controls.Add(this.button7);
+            this.panelEvent.Controls.Add(this.button6);
+            this.panelEvent.Controls.Add(this.textBoxEventDescription);
+            this.panelEvent.Controls.Add(this.textBoxEventAttendees);
+            this.panelEvent.Controls.Add(this.textBoxEventLocation);
+            this.panelEvent.Controls.Add(this.textBoxEventRemind);
+            this.panelEvent.Controls.Add(this.textBoxEventEndTime);
+            this.panelEvent.Controls.Add(this.textBoxEventStartTime);
+            this.panelEvent.Controls.Add(this.textBoxEventTitle);
+            this.panelEvent.Controls.Add(this.label8);
+            this.panelEvent.Controls.Add(this.label7);
+            this.panelEvent.Controls.Add(this.label6);
+            this.panelEvent.Controls.Add(this.label5);
+            this.panelEvent.Controls.Add(this.label4);
+            this.panelEvent.Controls.Add(this.label3);
+            this.panelEvent.Controls.Add(this.label2);
+            this.panelEvent.Location = new System.Drawing.Point(537, 43);
+            this.panelEvent.Name = "panelEvent";
+            this.panelEvent.Size = new System.Drawing.Size(334, 468);
+            this.panelEvent.TabIndex = 8;
+            this.panelEvent.Visible = false;
             // 
             // comboBox2
             // 
@@ -220,6 +220,16 @@
             this.comboBox2.TabIndex = 15;
             this.comboBox2.Visible = false;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(81, 432);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(190, 23);
+            this.button14.TabIndex = 21;
+            this.button14.Text = "Set Up Team Event";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // comboBox1
             // 
@@ -250,55 +260,55 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
-            // textBox7
+            // textBoxEventDescription
             // 
-            this.textBox7.Location = new System.Drawing.Point(21, 193);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(305, 202);
-            this.textBox7.TabIndex = 13;
+            this.textBoxEventDescription.Location = new System.Drawing.Point(21, 193);
+            this.textBoxEventDescription.Multiline = true;
+            this.textBoxEventDescription.Name = "textBoxEventDescription";
+            this.textBoxEventDescription.Size = new System.Drawing.Size(305, 202);
+            this.textBoxEventDescription.TabIndex = 13;
             // 
-            // textBox6
+            // textBoxEventAttendees
             // 
-            this.textBox6.Location = new System.Drawing.Point(97, 136);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(190, 20);
-            this.textBox6.TabIndex = 12;
+            this.textBoxEventAttendees.Location = new System.Drawing.Point(97, 136);
+            this.textBoxEventAttendees.Name = "textBoxEventAttendees";
+            this.textBoxEventAttendees.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEventAttendees.TabIndex = 12;
             // 
-            // textBox5
+            // textBoxEventLocation
             // 
-            this.textBox5.Location = new System.Drawing.Point(97, 110);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(190, 20);
-            this.textBox5.TabIndex = 11;
+            this.textBoxEventLocation.Location = new System.Drawing.Point(97, 110);
+            this.textBoxEventLocation.Name = "textBoxEventLocation";
+            this.textBoxEventLocation.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEventLocation.TabIndex = 11;
             // 
-            // textBox4
+            // textBoxEventRemind
             // 
-            this.textBox4.Location = new System.Drawing.Point(97, 84);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(190, 20);
-            this.textBox4.TabIndex = 10;
+            this.textBoxEventRemind.Location = new System.Drawing.Point(97, 84);
+            this.textBoxEventRemind.Name = "textBoxEventRemind";
+            this.textBoxEventRemind.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEventRemind.TabIndex = 10;
             // 
-            // textBox3
+            // textBoxEventEndTime
             // 
-            this.textBox3.Location = new System.Drawing.Point(97, 58);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(190, 20);
-            this.textBox3.TabIndex = 9;
+            this.textBoxEventEndTime.Location = new System.Drawing.Point(97, 58);
+            this.textBoxEventEndTime.Name = "textBoxEventEndTime";
+            this.textBoxEventEndTime.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEventEndTime.TabIndex = 9;
             // 
-            // textBox2
+            // textBoxEventStartTime
             // 
-            this.textBox2.Location = new System.Drawing.Point(97, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 20);
-            this.textBox2.TabIndex = 8;
+            this.textBoxEventStartTime.Location = new System.Drawing.Point(97, 32);
+            this.textBoxEventStartTime.Name = "textBoxEventStartTime";
+            this.textBoxEventStartTime.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEventStartTime.TabIndex = 8;
             // 
-            // textBox1
+            // textBoxEventTitle
             // 
-            this.textBox1.Location = new System.Drawing.Point(97, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBoxEventTitle.Location = new System.Drawing.Point(97, 6);
+            this.textBoxEventTitle.Name = "textBoxEventTitle";
+            this.textBoxEventTitle.Size = new System.Drawing.Size(190, 20);
+            this.textBoxEventTitle.TabIndex = 7;
             // 
             // label8
             // 
@@ -373,16 +383,16 @@
             this.listBox2.Visible = false;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
-            // panel2
+            // panelDeleteConfirm
             // 
-            this.panel2.Controls.Add(this.button9);
-            this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(537, 43);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(334, 426);
-            this.panel2.TabIndex = 16;
-            this.panel2.Visible = false;
+            this.panelDeleteConfirm.Controls.Add(this.button9);
+            this.panelDeleteConfirm.Controls.Add(this.button8);
+            this.panelDeleteConfirm.Controls.Add(this.label9);
+            this.panelDeleteConfirm.Location = new System.Drawing.Point(537, 43);
+            this.panelDeleteConfirm.Name = "panelDeleteConfirm";
+            this.panelDeleteConfirm.Size = new System.Drawing.Size(334, 426);
+            this.panelDeleteConfirm.TabIndex = 16;
+            this.panelDeleteConfirm.Visible = false;
             // 
             // button9
             // 
@@ -413,17 +423,17 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Are you sure you want to delete this event?";
             // 
-            // panel3
+            // panelConflictError
             // 
-            this.panel3.Controls.Add(this.button11);
-            this.panel3.Controls.Add(this.button10);
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Location = new System.Drawing.Point(529, 46);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(334, 426);
-            this.panel3.TabIndex = 17;
-            this.panel3.Visible = false;
+            this.panelConflictError.Controls.Add(this.button11);
+            this.panelConflictError.Controls.Add(this.button10);
+            this.panelConflictError.Controls.Add(this.label11);
+            this.panelConflictError.Controls.Add(this.label10);
+            this.panelConflictError.Location = new System.Drawing.Point(529, 46);
+            this.panelConflictError.Name = "panelConflictError";
+            this.panelConflictError.Size = new System.Drawing.Size(334, 426);
+            this.panelConflictError.TabIndex = 17;
+            this.panelConflictError.Visible = false;
             // 
             // button11
             // 
@@ -451,7 +461,7 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(26, 64);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(271, 17);
+            this.label11.Size = new System.Drawing.Size(250, 16);
             this.label11.TabIndex = 1;
             this.label11.Text = "This event conflicts with an existing event.";
             // 
@@ -462,34 +472,34 @@
             this.label10.ForeColor = System.Drawing.Color.Red;
             this.label10.Location = new System.Drawing.Point(122, 29);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 18);
+            this.label10.Size = new System.Drawing.Size(67, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "ERROR!";
             // 
-            // panel4
+            // panelLogin
             // 
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.label13);
-            this.panel4.Controls.Add(this.label12);
-            this.panel4.Controls.Add(this.textBox9);
-            this.panel4.Controls.Add(this.textBox8);
-            this.panel4.Controls.Add(this.button12);
-            this.panel4.Location = new System.Drawing.Point(267, 146);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(375, 270);
-            this.panel4.TabIndex = 18;
+            this.panelLogin.Controls.Add(this.panelLoginError);
+            this.panelLogin.Controls.Add(this.label14);
+            this.panelLogin.Controls.Add(this.label13);
+            this.panelLogin.Controls.Add(this.label12);
+            this.panelLogin.Controls.Add(this.textBoxPassword);
+            this.panelLogin.Controls.Add(this.textBoxUserName);
+            this.panelLogin.Controls.Add(this.button12);
+            this.panelLogin.Location = new System.Drawing.Point(267, 146);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(375, 270);
+            this.panelLogin.TabIndex = 18;
             // 
-            // panel5
+            // panelLoginError
             // 
-            this.panel5.Controls.Add(this.button13);
-            this.panel5.Controls.Add(this.label16);
-            this.panel5.Controls.Add(this.label15);
-            this.panel5.Location = new System.Drawing.Point(37, 43);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(299, 187);
-            this.panel5.TabIndex = 19;
-            this.panel5.Visible = false;
+            this.panelLoginError.Controls.Add(this.button13);
+            this.panelLoginError.Controls.Add(this.label16);
+            this.panelLoginError.Controls.Add(this.label15);
+            this.panelLoginError.Location = new System.Drawing.Point(37, 43);
+            this.panelLoginError.Name = "panelLoginError";
+            this.panelLoginError.Size = new System.Drawing.Size(299, 187);
+            this.panelLoginError.TabIndex = 19;
+            this.panelLoginError.Visible = false;
             // 
             // button13
             // 
@@ -507,7 +517,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(3, 69);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(294, 17);
+            this.label16.Size = new System.Drawing.Size(272, 16);
             this.label16.TabIndex = 4;
             this.label16.Text = "Either the username or password is incorrect.";
             this.label16.Click += new System.EventHandler(this.label16_Click);
@@ -519,7 +529,7 @@
             this.label15.ForeColor = System.Drawing.Color.Red;
             this.label15.Location = new System.Drawing.Point(107, 30);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(72, 18);
+            this.label15.Size = new System.Drawing.Size(67, 17);
             this.label15.TabIndex = 4;
             this.label15.Text = "ERROR!";
             // 
@@ -529,7 +539,7 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(54, 59);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(283, 17);
+            this.label14.Size = new System.Drawing.Size(266, 16);
             this.label14.TabIndex = 5;
             this.label14.Text = "Please enter your username and password.";
             this.label14.Click += new System.EventHandler(this.label14_Click);
@@ -540,7 +550,7 @@
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(70, 131);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 15);
+            this.label13.Size = new System.Drawing.Size(53, 13);
             this.label13.TabIndex = 4;
             this.label13.Text = "Password";
             // 
@@ -550,23 +560,26 @@
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(70, 97);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 15);
+            this.label12.Size = new System.Drawing.Size(55, 13);
             this.label12.TabIndex = 3;
             this.label12.Text = "Username";
             // 
-            // textBox9
+            // textBoxPassword
             // 
-            this.textBox9.Location = new System.Drawing.Point(141, 128);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 2;
+            this.textBoxPassword.AcceptsReturn = true;
+            this.textBoxPassword.Location = new System.Drawing.Point(141, 128);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
+            this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPassword.TabIndex = 2;
             // 
-            // textBox8
+            // textBoxUserName
             // 
-            this.textBox8.Location = new System.Drawing.Point(141, 94);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 1;
+            this.textBoxUserName.AcceptsReturn = true;
+            this.textBoxUserName.Location = new System.Drawing.Point(141, 94);
+            this.textBoxUserName.Name = "textBoxUserName";
+            this.textBoxUserName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUserName.TabIndex = 1;
             // 
             // button12
             // 
@@ -618,58 +631,116 @@
             this.comboBox3.Visible = false;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
-            // button14
-            // 
-            this.button14.Location = new System.Drawing.Point(81, 432);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(190, 23);
-            this.button14.TabIndex = 21;
-            this.button14.Text = "Set Up Team Event";
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(98, 9);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(120, 17);
+            this.label17.Size = new System.Drawing.Size(114, 16);
             this.label17.TabIndex = 21;
             this.label17.Text = "Team Event Form";
             // 
-            // panel6
+            // panelEventTeam
             // 
-            this.panel6.Controls.Add(this.panel7);
-            this.panel6.Controls.Add(this.button16);
-            this.panel6.Controls.Add(this.listBox3);
-            this.panel6.Controls.Add(this.button15);
-            this.panel6.Controls.Add(this.comboBox4);
-            this.panel6.Controls.Add(this.label18);
-            this.panel6.Controls.Add(this.dateTimePicker1);
-            this.panel6.Controls.Add(this.label17);
-            this.panel6.Location = new System.Drawing.Point(555, 33);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(338, 475);
-            this.panel6.TabIndex = 22;
-            this.panel6.Visible = false;
+            this.panelEventTeam.Controls.Add(this.panelTimeSlotChoice);
+            this.panelEventTeam.Controls.Add(this.button16);
+            this.panelEventTeam.Controls.Add(this.listBox3);
+            this.panelEventTeam.Controls.Add(this.button15);
+            this.panelEventTeam.Controls.Add(this.comboBox4);
+            this.panelEventTeam.Controls.Add(this.label18);
+            this.panelEventTeam.Controls.Add(this.dateTimePicker1);
+            this.panelEventTeam.Controls.Add(this.label17);
+            this.panelEventTeam.Location = new System.Drawing.Point(555, 33);
+            this.panelEventTeam.Name = "panelEventTeam";
+            this.panelEventTeam.Size = new System.Drawing.Size(338, 475);
+            this.panelEventTeam.TabIndex = 22;
+            this.panelEventTeam.Visible = false;
             // 
-            // dateTimePicker1
+            // panelTimeSlotChoice
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(63, 45);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 22;
+            this.panelTimeSlotChoice.Controls.Add(this.button18);
+            this.panelTimeSlotChoice.Controls.Add(this.button17);
+            this.panelTimeSlotChoice.Controls.Add(this.checkedListBox1);
+            this.panelTimeSlotChoice.Controls.Add(this.label19);
+            this.panelTimeSlotChoice.Location = new System.Drawing.Point(21, 3);
+            this.panelTimeSlotChoice.Name = "panelTimeSlotChoice";
+            this.panelTimeSlotChoice.Size = new System.Drawing.Size(292, 383);
+            this.panelTimeSlotChoice.TabIndex = 23;
+            this.panelTimeSlotChoice.Visible = false;
             // 
-            // label18
+            // button18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(60, 92);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(47, 13);
-            this.label18.TabIndex = 23;
-            this.label18.Text = "Duration";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
+            this.button18.Location = new System.Drawing.Point(144, 206);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 23);
+            this.button18.TabIndex = 3;
+            this.button18.Text = "Cancel";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button17
+            // 
+            this.button17.Location = new System.Drawing.Point(47, 206);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(75, 23);
+            this.button17.TabIndex = 2;
+            this.button17.Text = "Save";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Items.AddRange(new object[] {
+            "08:00 - 10:00",
+            "12:00 - 14:00",
+            "14:00 - 16:00"});
+            this.checkedListBox1.Location = new System.Drawing.Point(85, 36);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(102, 139);
+            this.checkedListBox1.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(75, 7);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(127, 16);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Possible Time Slots";
+            // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(79, 360);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(165, 23);
+            this.button16.TabIndex = 27;
+            this.button16.Text = "Find Possible Time Slots";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Items.AddRange(new object[] {
+            "Team Member 1",
+            "Team Member 2",
+            "Team Member 3"});
+            this.listBox3.Location = new System.Drawing.Point(79, 183);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(165, 147);
+            this.listBox3.TabIndex = 26;
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(101, 139);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(117, 23);
+            this.button15.TabIndex = 25;
+            this.button15.Text = "Add Member";
+            this.button15.UseVisualStyleBackColor = true;
             // 
             // comboBox4
             // 
@@ -686,99 +757,32 @@
             this.comboBox4.TabIndex = 24;
             this.comboBox4.Text = "15 minutes";
             // 
-            // button15
+            // label18
             // 
-            this.button15.Location = new System.Drawing.Point(101, 139);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(117, 23);
-            this.button15.TabIndex = 25;
-            this.button15.Text = "Add Member";
-            this.button15.UseVisualStyleBackColor = true;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(60, 92);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(47, 13);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "Duration";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
-            // listBox3
+            // dateTimePicker1
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Items.AddRange(new object[] {
-            "Team Member 1",
-            "Team Member 2",
-            "Team Member 3"});
-            this.listBox3.Location = new System.Drawing.Point(79, 183);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(165, 147);
-            this.listBox3.TabIndex = 26;
-            // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(79, 360);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(165, 23);
-            this.button16.TabIndex = 27;
-            this.button16.Text = "Find Possible Time Slots";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.button18);
-            this.panel7.Controls.Add(this.button17);
-            this.panel7.Controls.Add(this.checkedListBox1);
-            this.panel7.Controls.Add(this.label19);
-            this.panel7.Location = new System.Drawing.Point(21, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(292, 383);
-            this.panel7.TabIndex = 23;
-            this.panel7.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(75, 7);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(131, 17);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Possible Time Slots";
-            // 
-            // checkedListBox1
-            // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
-            "08:00 - 10:00",
-            "12:00 - 14:00",
-            "14:00 - 16:00"});
-            this.checkedListBox1.Location = new System.Drawing.Point(85, 36);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(102, 139);
-            this.checkedListBox1.TabIndex = 1;
-            // 
-            // button17
-            // 
-            this.button17.Location = new System.Drawing.Point(47, 206);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(75, 23);
-            this.button17.TabIndex = 2;
-            this.button17.Text = "Save";
-            this.button17.UseVisualStyleBackColor = true;
-            // 
-            // button18
-            // 
-            this.button18.Location = new System.Drawing.Point(144, 206);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(75, 23);
-            this.button18.TabIndex = 3;
-            this.button18.Text = "Cancel";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.dateTimePicker1.Location = new System.Drawing.Point(63, 45);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 22;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 558);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panelEvent);
+            this.Controls.Add(this.panelEventTeam);
             this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -788,25 +792,25 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelDeleteConfirm);
+            this.Controls.Add(this.panelConflictError);
             this.Name = "Form1";
             this.Text = "Personal Calendar";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.panelEvent.ResumeLayout(false);
+            this.panelEvent.PerformLayout();
+            this.panelDeleteConfirm.ResumeLayout(false);
+            this.panelDeleteConfirm.PerformLayout();
+            this.panelConflictError.ResumeLayout(false);
+            this.panelConflictError.PerformLayout();
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
+            this.panelLoginError.ResumeLayout(false);
+            this.panelLoginError.PerformLayout();
+            this.panelEventTeam.ResumeLayout(false);
+            this.panelEventTeam.PerformLayout();
+            this.panelTimeSlotChoice.ResumeLayout(false);
+            this.panelTimeSlotChoice.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -822,13 +826,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Panel panelEvent;
+        private System.Windows.Forms.TextBox textBoxEventDescription;
+        private System.Windows.Forms.TextBox textBoxEventAttendees;
+        private System.Windows.Forms.TextBox textBoxEventLocation;
+        private System.Windows.Forms.TextBox textBoxEventRemind;
+        private System.Windows.Forms.TextBox textBoxEventStartTime;
+        private System.Windows.Forms.TextBox textBoxEventTitle;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -839,26 +843,26 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBoxEventEndTime;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelDeleteConfirm;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelConflictError;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Panel panelLogin;
+        private System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxUserName;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelLoginError;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
@@ -866,14 +870,14 @@
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panelEventTeam;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelTimeSlotChoice;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button button18;
