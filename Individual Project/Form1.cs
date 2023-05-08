@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Individual_Project
@@ -11,6 +14,8 @@ namespace Individual_Project
         Client currentUser;
         Event selectedEvent = new Event();
         bool addEvent = false;
+        List <int> clientIdsForTeamEvent; 
+        List <TeamMember> membersToChooseList; 
 
         public FormMain()
         {
@@ -127,7 +132,7 @@ namespace Individual_Project
             //Add Event Button
             buttonAdd.BackColor = Color.Red;
             addEvent = true;
-            emptyEventForm();
+            EmptyEventForm();
 
             textBoxEventStartTime.Visible = false;
             comboBoxStartTime.Visible = true;
@@ -368,19 +373,27 @@ namespace Individual_Project
         private void buttonTeamEvent_Click(object sender, EventArgs e)
         {
             //Set Up Team Event button
+            //TODO: maybe set up team event box to be seperate from event add. This will mean to move the button, and add the text box and labels for description, location, and title.
+
             buttonTeamEvent.Visible = false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
 
-            //Call to get unavailable times from the team.
-            //var temp = workEvent.GetTeamTimes(thisDate, currentUser.TeamID);
+            membersToChooseList = new List<TeamMember>();
+            clientIdsForTeamEvent = new List<int>();
+
+            foreach (var member in currentUser.TeamMembers)
+            {
+                listBoxMembersToAdd.Items.Add(member.FullName);
+                membersToChooseList.Add(member);
+            }
         }
 
         private void buttonSaveTeamEvent_Click(object sender, EventArgs e)
         {
             //Save Potential Time Slots Button
 
-            //Modifications.AddTeamEvent(workEvent, currentUser.TeamID);
+            //Modifications.AddTeamEvent(workEvent, currentUser.TeamID, clientIdsForTeamEvent);
         }
 
         private void buttonCancelTeamEvent_Click(object sender, EventArgs e)
@@ -399,23 +412,68 @@ namespace Individual_Project
             {
                 ListBoxEventsDaily_SelectedIndexChanged(sender, e);
             }
+
+            CancelTeamAdd();
         }
 
-        private void emptyEventForm()
+        private void buttonAddMembers_Click(object sender, EventArgs e)
         {
-            panelEvent.Visible = true;
-            textBoxEventTitle.Text = "";
-            textBoxEventStartTime.Text = "";
-            textBoxEventEndTime.Text = "";
-            textBoxEventLocation.Text = "";
-            textBoxEventDescription.Text = "";
+            panelMembersToAdd.Visible= true;
+            panelEventTeam.Visible = false;
+            listBoxMembersToAdd.Items.Clear();
+
+            if (membersToChooseList.Count == 0)
+            {
+                listBoxMembersToAdd.Enabled = false;
+            }
+            else
+            {
+                foreach (var member in membersToChooseList)
+                {
+                    listBoxMembersToAdd.Items.Add(member.FullName);
+                }
+            }
         }
 
-        private void ViewEvents (string date)
+        private void buttonTimeSlots_Click(object sender, EventArgs e)
+        {
+            panelEventTeam.Visible = false;
+            panelTimeSlotChoice.Visible = true;
+            listBoxMembersToAdd.Enabled = true;
+
+            string date = dateTimePickerTeamEvent.Value.ToString();
+
+            var busyTimes = Event.GetTeamBusyTimes(date, clientIdsForTeamEvent);
+
+            //TODO: Use busy time list to determine a set of timeslots to use for event.
+
+        }
+
+        private void listBoxMembersToAdd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var index = listBoxMembersToAdd.SelectedIndex;
+            var item = listBoxMembersToAdd.SelectedItem;
+
+            clientIdsForTeamEvent.Add(membersToChooseList[index].clientID);
+            membersToChooseList.RemoveAt(index);
+
+            listBoxTeamMembersAdded.Items.Add(item);
+
+            panelMembersToAdd.Visible = false;
+            panelEventTeam.Visible = true;
+        }
+
+        private void buttonCancelMemberAdd_Click(object sender, EventArgs e)
+        {
+            panelMembersToAdd.Visible = false;
+            panelEventTeam.Visible = true;
+        }
+
+        private void ViewEvents(string date)
         {
             labelEventsOn.Text = "Events on " + date;
             eList = Event.getEventList(date, currentUser.ClientID);
-            
+
             listBoxEventsDaily.Items.Clear();
 
             for (int i = 0; i < eList.Count; i++)
@@ -426,15 +484,24 @@ namespace Individual_Project
             }
         }
 
-        private void buttonAddMembers_Click(object sender, EventArgs e)
+        private void EmptyEventForm()
         {
-
+            panelEvent.Visible = true;
+            textBoxEventTitle.Text = "";
+            textBoxEventStartTime.Text = "";
+            textBoxEventEndTime.Text = "";
+            textBoxEventLocation.Text = "";
+            textBoxEventDescription.Text = "";
         }
 
-        private void buttonTimeSlots_Click(object sender, EventArgs e)
+        private void CancelTeamAdd()
         {
-            panelEventTeam.Visible = false;
-            panelTimeSlotChoice.Visible = true;
+            clientIdsForTeamEvent.Clear();
+            membersToChooseList.Clear();
+
+            listBoxMembersToAdd.Items.Clear();
+            listBoxTeamMembersAdded.Items.Clear();
+            listBoxMembersToAdd.Enabled = true;
         }
     }
 }

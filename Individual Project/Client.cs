@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Individual_Project
@@ -13,6 +14,7 @@ namespace Individual_Project
         private int _teamID;
         private bool _isManager;
         private bool _isCredentialsGood;
+        private List<TeamMember> _teamMembers;
 
         public int ClientID { get => _clientID; }
         public string FirstName { get => _firstName; }
@@ -21,6 +23,7 @@ namespace Individual_Project
         public bool IsManager { get => _isManager; }
         public bool IsCredentialsGood { get => _isCredentialsGood; }
         public int TeamID { get => _teamID; }
+        public List<TeamMember> TeamMembers { get => _teamMembers; }
 
         public Client(string userName, string password) 
         {
@@ -56,6 +59,27 @@ namespace Individual_Project
                         _isManager = Convert.ToBoolean(row["isManager"]);
                         _teamID = Convert.ToInt32(row["teamId"]);
                         _fullName = $"{LastName}, {FirstName}";
+                    }
+                }
+
+                if (IsManager)
+                {
+                    string getTeamMemberQuery = $"select ClientID, firstName, lastName from {GlobalVariables.ClientTableName}" +
+                                $" WHERE teamID=@teamID";
+                    MySqlCommand teamMemberCmd = new MySqlCommand(getTeamMemberQuery, conn);
+                    teamMemberCmd.Parameters.AddWithValue("@teamID", _teamID);
+
+                    myAdapter = new MySqlDataAdapter(teamMemberCmd);
+                    myTable.Clear();
+                    myAdapter.Fill(myTable);
+
+                    _teamMembers = new List<TeamMember>();
+
+                    foreach (DataRow row in myTable.Rows)
+                    {
+                        int id = Convert.ToInt32(row["ClientID"]);
+                        string fullName = $"{row["lastName"]}, {row["firstName"]}";
+                        _teamMembers.Add(new TeamMember(id, fullName));
                     }
                 }
             }

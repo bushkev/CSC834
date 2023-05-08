@@ -105,7 +105,7 @@ namespace Individual_Project
             return success;
         }
 
-        public static bool AddTeamEvent(Event currentEvent, int teamID)
+        public static bool AddTeamEvent(Event currentEvent, int teamID, List<int> clientIDs)
         {
             bool success = true;
             MySqlConnection conn = new MySqlConnection(GlobalVariables.ConnString);
@@ -114,7 +114,6 @@ namespace Individual_Project
             {
                 conn.Open();
 
-                List<int> clientIDs = new List<int>();
                 DataTable myTable = new DataTable();
 
                 #region Get max team event ID
@@ -124,24 +123,7 @@ namespace Individual_Project
                 int teamEventID = Convert.ToInt32(getMaxTeamEventIdCmd.ExecuteScalar()) + 1;
                 #endregion
 
-                #region Get client Ids
-                string getClientIdQuery = $"select clientID from {GlobalVariables.ClientTableName}" +
-                                            $" Where teamID = @teamID";
-
-                MySqlCommand getClientIdsCmd = new MySqlCommand(getClientIdQuery, conn);
-                getClientIdsCmd.Parameters.AddWithValue("@teamID", teamID);
-
-                MySqlDataAdapter myAdapter = new MySqlDataAdapter(getClientIdsCmd);
-                myAdapter.Fill(myTable);
-
-                foreach (DataRow row in myTable.Rows )
-                {
-                    clientIDs.Add(Convert.ToInt32(row["clientID"]));
-                }
-                #endregion
-
                 #region insert events
-
                 string sqlQuery = $"insert into {GlobalVariables.EventsTableName} " +
                         $" (eventName, startTime, endTime, location, description, eventDay, clientID, teamEventID)" +
                         $" Values ( @eventName, @startTime, @endTime, @location, @description, @eventDay, @clientID, @teamEventID )";

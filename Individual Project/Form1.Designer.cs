@@ -74,7 +74,7 @@
             this.panelEventTeam = new System.Windows.Forms.Panel();
             this.buttonTimeSlots = new System.Windows.Forms.Button();
             this.buttonAddMembers = new System.Windows.Forms.Button();
-            this.listBoxTeamMembersAdd = new System.Windows.Forms.ListBox();
+            this.listBoxTeamMembersAdded = new System.Windows.Forms.ListBox();
             this.comboBoxDurationTeamEvent = new System.Windows.Forms.ComboBox();
             this.labelDuration = new System.Windows.Forms.Label();
             this.dateTimePickerTeamEvent = new System.Windows.Forms.DateTimePicker();
@@ -86,6 +86,10 @@
             this.panelDeleteConfirm = new System.Windows.Forms.Panel();
             this.panelTimeSlotChoice = new System.Windows.Forms.Panel();
             this.labelTimeSlotTitle = new System.Windows.Forms.Label();
+            this.listBoxMembersToAdd = new System.Windows.Forms.ListBox();
+            this.panelMembersToAdd = new System.Windows.Forms.Panel();
+            this.labelChooseMembersToAdd = new System.Windows.Forms.Label();
+            this.buttonCancelMemberAdd = new System.Windows.Forms.Button();
             this.panelEvent.SuspendLayout();
             this.panelConflictError.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -93,6 +97,7 @@
             this.panelEventTeam.SuspendLayout();
             this.panelDeleteConfirm.SuspendLayout();
             this.panelTimeSlotChoice.SuspendLayout();
+            this.panelMembersToAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // monthCalendar1
@@ -184,7 +189,7 @@
             this.panelEvent.Controls.Add(this.labelLocation);
             this.panelEvent.Controls.Add(this.labelStartTime);
             this.panelEvent.Controls.Add(this.labelTitle);
-            this.panelEvent.Location = new System.Drawing.Point(558, 33);
+            this.panelEvent.Location = new System.Drawing.Point(553, 30);
             this.panelEvent.Name = "panelEvent";
             this.panelEvent.Size = new System.Drawing.Size(334, 426);
             this.panelEvent.TabIndex = 8;
@@ -548,7 +553,7 @@
             // 
             this.panelEventTeam.Controls.Add(this.buttonTimeSlots);
             this.panelEventTeam.Controls.Add(this.buttonAddMembers);
-            this.panelEventTeam.Controls.Add(this.listBoxTeamMembersAdd);
+            this.panelEventTeam.Controls.Add(this.listBoxTeamMembersAdded);
             this.panelEventTeam.Controls.Add(this.comboBoxDurationTeamEvent);
             this.panelEventTeam.Controls.Add(this.labelDuration);
             this.panelEventTeam.Controls.Add(this.dateTimePickerTeamEvent);
@@ -579,13 +584,13 @@
             this.buttonAddMembers.UseVisualStyleBackColor = true;
             this.buttonAddMembers.Click += new System.EventHandler(this.buttonAddMembers_Click);
             // 
-            // listBoxTeamMembersAdd
+            // listBoxTeamMembersAdded
             // 
-            this.listBoxTeamMembersAdd.FormattingEnabled = true;
-            this.listBoxTeamMembersAdd.Location = new System.Drawing.Point(79, 158);
-            this.listBoxTeamMembersAdd.Name = "listBoxTeamMembersAdd";
-            this.listBoxTeamMembersAdd.Size = new System.Drawing.Size(166, 134);
-            this.listBoxTeamMembersAdd.TabIndex = 25;
+            this.listBoxTeamMembersAdded.FormattingEnabled = true;
+            this.listBoxTeamMembersAdded.Location = new System.Drawing.Point(79, 158);
+            this.listBoxTeamMembersAdded.Name = "listBoxTeamMembersAdded";
+            this.listBoxTeamMembersAdded.Size = new System.Drawing.Size(166, 134);
+            this.listBoxTeamMembersAdded.TabIndex = 25;
             // 
             // comboBoxDurationTeamEvent
             // 
@@ -703,12 +708,51 @@
             this.labelTimeSlotTitle.TabIndex = 22;
             this.labelTimeSlotTitle.Text = "Possible Time Slots";
             // 
+            // listBoxMembersToAdd
+            // 
+            this.listBoxMembersToAdd.FormattingEnabled = true;
+            this.listBoxMembersToAdd.Location = new System.Drawing.Point(61, 41);
+            this.listBoxMembersToAdd.Name = "listBoxMembersToAdd";
+            this.listBoxMembersToAdd.Size = new System.Drawing.Size(167, 160);
+            this.listBoxMembersToAdd.TabIndex = 28;
+            this.listBoxMembersToAdd.SelectedIndexChanged += new System.EventHandler(this.listBoxMembersToAdd_SelectedIndexChanged);
+            // 
+            // panelMembersToAdd
+            // 
+            this.panelMembersToAdd.Controls.Add(this.buttonCancelMemberAdd);
+            this.panelMembersToAdd.Controls.Add(this.labelChooseMembersToAdd);
+            this.panelMembersToAdd.Controls.Add(this.listBoxMembersToAdd);
+            this.panelMembersToAdd.Location = new System.Drawing.Point(572, 127);
+            this.panelMembersToAdd.Name = "panelMembersToAdd";
+            this.panelMembersToAdd.Size = new System.Drawing.Size(298, 248);
+            this.panelMembersToAdd.TabIndex = 24;
+            this.panelMembersToAdd.Visible = false;
+            // 
+            // labelChooseMembersToAdd
+            // 
+            this.labelChooseMembersToAdd.AutoSize = true;
+            this.labelChooseMembersToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChooseMembersToAdd.Location = new System.Drawing.Point(55, 16);
+            this.labelChooseMembersToAdd.Name = "labelChooseMembersToAdd";
+            this.labelChooseMembersToAdd.Size = new System.Drawing.Size(183, 16);
+            this.labelChooseMembersToAdd.TabIndex = 29;
+            this.labelChooseMembersToAdd.Text = "Select a team member to add";
+            // 
+            // buttonCancelMemberAdd
+            // 
+            this.buttonCancelMemberAdd.Location = new System.Drawing.Point(61, 207);
+            this.buttonCancelMemberAdd.Name = "buttonCancelMemberAdd";
+            this.buttonCancelMemberAdd.Size = new System.Drawing.Size(166, 30);
+            this.buttonCancelMemberAdd.TabIndex = 30;
+            this.buttonCancelMemberAdd.Text = "Cancel";
+            this.buttonCancelMemberAdd.UseVisualStyleBackColor = true;
+            this.buttonCancelMemberAdd.Click += new System.EventHandler(this.buttonCancelMemberAdd_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 486);
-            this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.panelEventTeam);
             this.Controls.Add(this.panelTimeSlotChoice);
             this.Controls.Add(this.comboBoxMonth);
@@ -722,6 +766,8 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panelDeleteConfirm);
             this.Controls.Add(this.panelConflictError);
+            this.Controls.Add(this.panelEvent);
+            this.Controls.Add(this.panelMembersToAdd);
             this.Name = "FormMain";
             this.Text = "Personal Calendar";
             this.panelEvent.ResumeLayout(false);
@@ -738,6 +784,8 @@
             this.panelDeleteConfirm.PerformLayout();
             this.panelTimeSlotChoice.ResumeLayout(false);
             this.panelTimeSlotChoice.PerformLayout();
+            this.panelMembersToAdd.ResumeLayout(false);
+            this.panelMembersToAdd.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -801,8 +849,12 @@
         private System.Windows.Forms.Panel panelTimeSlotChoice;
         private System.Windows.Forms.Button buttonTimeSlots;
         private System.Windows.Forms.Button buttonAddMembers;
-        private System.Windows.Forms.ListBox listBoxTeamMembersAdd;
+        private System.Windows.Forms.ListBox listBoxTeamMembersAdded;
         private System.Windows.Forms.Label labelTimeSlotTitle;
+        private System.Windows.Forms.ListBox listBoxMembersToAdd;
+        private System.Windows.Forms.Panel panelMembersToAdd;
+        private System.Windows.Forms.Label labelChooseMembersToAdd;
+        private System.Windows.Forms.Button buttonCancelMemberAdd;
     }
 }
 

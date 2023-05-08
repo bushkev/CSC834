@@ -142,7 +142,7 @@ namespace Individual_Project
             return eventList;  //return the event list
         }
 
-        public List<Tuple<string, string>> GetTeamTimes (string eventDate, int teamID)
+        public static List<Tuple<string, string>> GetTeamBusyTimes (string eventDate, List<int> clientIds)
         {
             List<Tuple<string, string>> busyTimes = new List<Tuple<string, string>>();
             MySqlConnection conn = new MySqlConnection(GlobalVariables.ConnString);
@@ -151,15 +151,20 @@ namespace Individual_Project
             {
                 conn.Open();
 
+                string inClause = " ";
+                foreach (var client in clientIds)
+                {
+                    inClause += $" {client},";
+                }
+                inClause = inClause.Trim(',');
+
                 DataTable myTable = new DataTable();
-                string sqlQuerry = $"SELECT distinct startTime, endTime from bgcclients c" +
-                                    $" JOIN bgcevents e ON c.clientID = e.ClientID" +
-                                    $" Where teamID = @teamID" +
+                string sqlQuerry = $"SELECT distinct startTime, endTime from {GlobalVariables.EventsTableName}" +
+                                    $" Where clientID IN ({inClause})" +
                                     $" AND eventday = @date" +
                                     $" ORDER BY startTime";
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuerry, conn);
-                cmd.Parameters.AddWithValue("@teamID", teamID);
                 cmd.Parameters.AddWithValue("@date", eventDate);
 
                 MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
