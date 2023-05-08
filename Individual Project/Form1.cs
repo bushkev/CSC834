@@ -13,8 +13,8 @@ namespace Individual_Project
         Client currentUser;
         Event selectedEvent = new Event();
         bool addEvent = false;
-        List<int> clientIdsForTeamEvent;
-        List<TeamMember> membersToChooseList;
+        List <int> clientIdsForTeamEvent; 
+        List <TeamMember> membersToChooseList;
 
         public FormMain()
         {
@@ -41,7 +41,7 @@ namespace Individual_Project
             buttonAdd.Enabled = false;
             buttonDelete.Enabled = false;
             buttonEdit.Enabled = false;
-            buttonViewMonthly.Enabled = false;
+            buttonViewMonthly.Enabled = false; 
         }
 
         // Button that saves data for add and edit events.
@@ -52,7 +52,7 @@ namespace Individual_Project
 
             Event workEvent = new Event(textBoxEventTitle.Text, comboBoxStartTime.SelectedItem.ToString(), comboBoxEndTime.SelectedItem.ToString(),
                textBoxEventLocation.Text, thisDate, textBoxEventDescription.Text);
-
+            
             bool noConflict = workEvent.CheckConflict(eList);
 
             panelEvent.Visible = false;
@@ -83,7 +83,7 @@ namespace Individual_Project
             {
                 panelConflictError.Visible = true;
                 panelEvent.Visible = false;
-            }
+            }            
         }
 
         private void ButtonCancelEvent_Click(object sender, EventArgs e)
@@ -241,7 +241,7 @@ namespace Individual_Project
             else
             {
                 panelLoginError.Visible = true;
-                textBoxPassword.Text = string.Empty;
+                textBoxPassword.Text= string.Empty;
             }
         }
 
@@ -264,9 +264,9 @@ namespace Individual_Project
         {
             //Select Month Drop-Down Menu
             string selection = comboBoxMonth.SelectedItem.ToString();
-            string month = selection.Substring(7);
+            string month = selection.Substring(7); 
             var monthNumber = DateTime.ParseExact(month, "MMMM", CultureInfo.CurrentCulture).Month;
-            string year = selection.Substring(0, 4);
+            string year = selection.Substring(0,4);
             string thisDate = $"{year}-{monthNumber:d2}-01)";
 
             ViewEvents(thisDate, true);
@@ -276,7 +276,7 @@ namespace Individual_Project
         {
             //Add Team Event button
             //TODO: maybe set up team event box to be seperate from event add. This will mean to move the button, and add the text box and labels for description, location, and title.
-            buttonTimeSlots.Enabled = false;
+            buttonTimeSlots.Enabled= false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
 
@@ -336,7 +336,7 @@ namespace Individual_Project
         private void buttonAddMembers_Click(object sender, EventArgs e)
         {
             buttonTimeSlots.Enabled = true;
-            panelMembersToAdd.Visible = true;
+            panelMembersToAdd.Visible= true;
             panelEventTeam.Visible = false;
             listBoxMembersToAdd.Items.Clear();
 
@@ -391,7 +391,7 @@ namespace Individual_Project
         {
             for (int i = 0; i < 24; i++)
             {
-                for (int j = 0; j <= 30; j += 30)
+                for (int j = 0;j <= 30; j += 30)
                 {
                     comboBoxStartTime.Items.Add($"{i:D2}:{j:D2}");
                     comboBoxEndTime.Items.Add($"{i:D2}:{j:D2}");
@@ -399,7 +399,7 @@ namespace Individual_Project
                 }
             }
             comboBoxDurationTeamEvent.Items.RemoveAt(0);
-            comboBoxDurationTeamEvent.SelectedIndex = 0;
+            comboBoxDurationTeamEvent.SelectedIndex= 0;
         }
 
         // Adds months for last year, this year and next year to comboBox.
@@ -407,7 +407,7 @@ namespace Individual_Project
         {
             for (int i = -1; i <= 1; i++)
             {
-                for (int j = 1; j <= 12; j++)
+                for(int j = 1; j <= 12; j++)
                 {
                     var month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(j);
                     comboBoxMonth.Items.Add($"{DateTime.Today.Year + i} - {month}");
@@ -475,7 +475,7 @@ namespace Individual_Project
 
             for (int i = 0; i < 24 - hours; i++)
             {
-                for (int j = 0; j <= 30; j += 30)
+                for (int j = 0; j <=30; j += 30)
                 {
                     bool addToBox = true;
                     string startTime = $"{i:D2}:{j:D2}";
@@ -489,7 +489,7 @@ namespace Individual_Project
                     {
                         endTime = $"{i + hours:D2}:{j + minutes:D2}";
                     }
-
+                    
                     foreach (var tuple in busyTimes)
                     {
                         string busyStart = tuple.Item1;
@@ -499,7 +499,7 @@ namespace Individual_Project
                         else addToBox = false;
                     }
                     if (addToBox)
-                        ((ListBox)listBoxTeamTimeAvail).Items.Add($"{startTime} - {endTime}");
+                        listBoxTeamTimeAvail.Items.Add($"{startTime} - {endTime}");
                 }
             }
         }
