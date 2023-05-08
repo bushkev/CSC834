@@ -4,5 +4,5 @@
 
 /packages
 /.vs
-/Individual Project/obj
-/Individual Project/bin
+/Individual Project/obj/Debug
+/Individual Project/bin/Debug
