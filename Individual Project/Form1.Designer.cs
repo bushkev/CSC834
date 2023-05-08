@@ -81,7 +81,6 @@
             this.labelEventForm = new System.Windows.Forms.Label();
             this.buttonCancelTeamEvent = new System.Windows.Forms.Button();
             this.buttonSaveTeamEvent = new System.Windows.Forms.Button();
-            this.checkedListBoxTeamTime = new System.Windows.Forms.CheckedListBox();
             this.buttonConfirmDelete = new System.Windows.Forms.Button();
             this.panelDeleteConfirm = new System.Windows.Forms.Panel();
             this.panelTimeSlotChoice = new System.Windows.Forms.Panel();
@@ -90,6 +89,8 @@
             this.panelMembersToAdd = new System.Windows.Forms.Panel();
             this.buttonCancelMemberAdd = new System.Windows.Forms.Button();
             this.labelChooseMembersToAdd = new System.Windows.Forms.Label();
+            this.listBoxTeamTimeAvail = new System.Windows.Forms.ListBox();
+            this.buttonDeleteTeamEvent = new System.Windows.Forms.Button();
             this.panelEvent.SuspendLayout();
             this.panelConflictError.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -176,7 +177,6 @@
             // 
             this.panelEvent.Controls.Add(this.labelEndTime);
             this.panelEvent.Controls.Add(this.comboBoxEndTime);
-            this.panelEvent.Controls.Add(this.buttonTeamEvent);
             this.panelEvent.Controls.Add(this.comboBoxStartTime);
             this.panelEvent.Controls.Add(this.buttonCancelEvent);
             this.panelEvent.Controls.Add(this.buttonSaveEvent);
@@ -189,9 +189,9 @@
             this.panelEvent.Controls.Add(this.labelLocation);
             this.panelEvent.Controls.Add(this.labelStartTime);
             this.panelEvent.Controls.Add(this.labelTitle);
-            this.panelEvent.Location = new System.Drawing.Point(553, 30);
+            this.panelEvent.Location = new System.Drawing.Point(553, 58);
             this.panelEvent.Name = "panelEvent";
-            this.panelEvent.Size = new System.Drawing.Size(334, 426);
+            this.panelEvent.Size = new System.Drawing.Size(334, 389);
             this.panelEvent.TabIndex = 8;
             this.panelEvent.Visible = false;
             // 
@@ -215,12 +215,13 @@
             // 
             // buttonTeamEvent
             // 
-            this.buttonTeamEvent.Location = new System.Drawing.Point(86, 385);
+            this.buttonTeamEvent.Location = new System.Drawing.Point(9, 379);
             this.buttonTeamEvent.Name = "buttonTeamEvent";
-            this.buttonTeamEvent.Size = new System.Drawing.Size(190, 23);
+            this.buttonTeamEvent.Size = new System.Drawing.Size(227, 40);
             this.buttonTeamEvent.TabIndex = 21;
-            this.buttonTeamEvent.Text = "Set Up Team Event";
+            this.buttonTeamEvent.Text = "Add Team Event";
             this.buttonTeamEvent.UseVisualStyleBackColor = true;
+            this.buttonTeamEvent.Visible = false;
             this.buttonTeamEvent.Click += new System.EventHandler(this.buttonTeamEvent_Click);
             // 
             // comboBoxStartTime
@@ -567,17 +568,11 @@
             // comboBoxDurationTeamEvent
             // 
             this.comboBoxDurationTeamEvent.FormattingEnabled = true;
-            this.comboBoxDurationTeamEvent.Items.AddRange(new object[] {
-            "15 minutes",
-            "30 minutes",
-            "1 hour",
-            "2 hours"});
             this.comboBoxDurationTeamEvent.Location = new System.Drawing.Point(142, 89);
             this.comboBoxDurationTeamEvent.MaxDropDownItems = 4;
             this.comboBoxDurationTeamEvent.Name = "comboBoxDurationTeamEvent";
             this.comboBoxDurationTeamEvent.Size = new System.Drawing.Size(121, 21);
             this.comboBoxDurationTeamEvent.TabIndex = 24;
-            this.comboBoxDurationTeamEvent.Text = "15 minutes";
             // 
             // labelDuration
             // 
@@ -625,18 +620,6 @@
             this.buttonSaveTeamEvent.UseVisualStyleBackColor = true;
             this.buttonSaveTeamEvent.Click += new System.EventHandler(this.buttonSaveTeamEvent_Click);
             // 
-            // checkedListBoxTeamTime
-            // 
-            this.checkedListBoxTeamTime.FormattingEnabled = true;
-            this.checkedListBoxTeamTime.Items.AddRange(new object[] {
-            "08:00 - 10:00",
-            "12:00 - 14:00",
-            "14:00 - 16:00"});
-            this.checkedListBoxTeamTime.Location = new System.Drawing.Point(113, 77);
-            this.checkedListBoxTeamTime.Name = "checkedListBoxTeamTime";
-            this.checkedListBoxTeamTime.Size = new System.Drawing.Size(102, 139);
-            this.checkedListBoxTeamTime.TabIndex = 1;
-            // 
             // buttonConfirmDelete
             // 
             this.buttonConfirmDelete.Location = new System.Drawing.Point(119, 55);
@@ -660,9 +643,9 @@
             // 
             // panelTimeSlotChoice
             // 
+            this.panelTimeSlotChoice.Controls.Add(this.listBoxTeamTimeAvail);
             this.panelTimeSlotChoice.Controls.Add(this.labelTimeSlotTitle);
             this.panelTimeSlotChoice.Controls.Add(this.buttonCancelTeamEvent);
-            this.panelTimeSlotChoice.Controls.Add(this.checkedListBoxTeamTime);
             this.panelTimeSlotChoice.Controls.Add(this.buttonSaveTeamEvent);
             this.panelTimeSlotChoice.Location = new System.Drawing.Point(550, 33);
             this.panelTimeSlotChoice.Name = "panelTimeSlotChoice";
@@ -720,14 +703,34 @@
             this.labelChooseMembersToAdd.TabIndex = 29;
             this.labelChooseMembersToAdd.Text = "Select a team member to add";
             // 
+            // listBoxTeamTimeAvail
+            // 
+            this.listBoxTeamTimeAvail.FormattingEnabled = true;
+            this.listBoxTeamTimeAvail.Location = new System.Drawing.Point(109, 69);
+            this.listBoxTeamTimeAvail.Name = "listBoxTeamTimeAvail";
+            this.listBoxTeamTimeAvail.Size = new System.Drawing.Size(124, 134);
+            this.listBoxTeamTimeAvail.TabIndex = 23;
+            // 
+            // buttonDeleteTeamEvent
+            // 
+            this.buttonDeleteTeamEvent.Location = new System.Drawing.Point(9, 425);
+            this.buttonDeleteTeamEvent.Name = "buttonDeleteTeamEvent";
+            this.buttonDeleteTeamEvent.Size = new System.Drawing.Size(227, 40);
+            this.buttonDeleteTeamEvent.TabIndex = 25;
+            this.buttonDeleteTeamEvent.Text = "Delete Team Event";
+            this.buttonDeleteTeamEvent.UseVisualStyleBackColor = true;
+            this.buttonDeleteTeamEvent.Visible = false;
+            this.buttonDeleteTeamEvent.Click += new System.EventHandler(this.buttonDeleteTeamEvent_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 486);
-            this.Controls.Add(this.panelEventTeam);
-            this.Controls.Add(this.panelTimeSlotChoice);
+            this.Controls.Add(this.buttonDeleteTeamEvent);
+            this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.comboBoxMonth);
+            this.Controls.Add(this.buttonTeamEvent);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.buttonViewMonthly);
             this.Controls.Add(this.buttonEdit);
@@ -738,8 +741,9 @@
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.panelDeleteConfirm);
             this.Controls.Add(this.panelConflictError);
-            this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.panelMembersToAdd);
+            this.Controls.Add(this.panelEventTeam);
+            this.Controls.Add(this.panelTimeSlotChoice);
             this.Name = "FormMain";
             this.Text = "Personal Calendar";
             this.panelEvent.ResumeLayout(false);
@@ -813,7 +817,6 @@
         private System.Windows.Forms.ComboBox comboBoxDurationTeamEvent;
         private System.Windows.Forms.Button buttonSaveTeamEvent;
         private System.Windows.Forms.Label labelDuration;
-        private System.Windows.Forms.CheckedListBox checkedListBoxTeamTime;
         private System.Windows.Forms.DateTimePicker dateTimePickerTeamEvent;
         private System.Windows.Forms.Label labelEventForm;
         private System.Windows.Forms.Button buttonConfirmDelete;
@@ -827,6 +830,8 @@
         private System.Windows.Forms.Panel panelMembersToAdd;
         private System.Windows.Forms.Label labelChooseMembersToAdd;
         private System.Windows.Forms.Button buttonCancelMemberAdd;
+        private System.Windows.Forms.ListBox listBoxTeamTimeAvail;
+        private System.Windows.Forms.Button buttonDeleteTeamEvent;
     }
 }
 

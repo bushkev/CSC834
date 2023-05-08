@@ -14,7 +14,7 @@ namespace Individual_Project
         Event selectedEvent = new Event();
         bool addEvent = false;
         List <int> clientIdsForTeamEvent; 
-        List <TeamMember> membersToChooseList; 
+        List <TeamMember> membersToChooseList;
 
         public FormMain()
         {
@@ -152,8 +152,17 @@ namespace Individual_Project
             //Confirm deleting event button
             buttonDelete.BackColor = DefaultBackColor;
             panelDeleteConfirm.Visible = false;
+            bool success = false;
 
-            if (Modifications.DeleteEvent(selectedEvent.EventID))
+            if (selectedEvent.TeamEventID != null)
+            {
+                success = Modifications.DeleteTeamEvent(selectedEvent.TeamEventID);
+            }
+            else
+            {
+                success = Modifications.DeleteEvent(selectedEvent.EventID);
+            }
+            if (success)
             {
                 ViewEvents(selectedEvent.Date);
             }
@@ -219,7 +228,11 @@ namespace Individual_Project
                 buttonEdit.Visible = true;
                 buttonViewMonthly.Visible = true;
 
-                if (!currentUser.IsManager) buttonTeamEvent.Visible = false;
+                if (currentUser.IsManager)
+                {
+                    buttonTeamEvent.Visible = true;
+                    buttonDeleteTeamEvent.Visible = true;
+                }
 
                 string todayDate = DateTime.Today.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                 ViewEvents(todayDate);
@@ -260,9 +273,9 @@ namespace Individual_Project
 
         private void buttonTeamEvent_Click(object sender, EventArgs e)
         {
-            //Set Up Team Event button
+            //Add Team Event button
             //TODO: maybe set up team event box to be seperate from event add. This will mean to move the button, and add the text box and labels for description, location, and title.
-
+            buttonTimeSlots.Enabled= false;
             buttonTeamEvent.Visible = false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
@@ -277,10 +290,26 @@ namespace Individual_Project
             }
         }
 
+        private void buttonDeleteTeamEvent_Click(object sender, EventArgs e)
+        {
+            //Delete Team Event button
+            if (selectedEvent.EventID != 0)
+            {
+                buttonDelete.BackColor = Color.Red;
+                panelEvent.Visible = false;
+                panelDeleteConfirm.Visible = true;
+            }
+        }
+
         private void buttonSaveTeamEvent_Click(object sender, EventArgs e)
         {
             //Save Potential Time Slots Button
+            string selectedTime = listBoxTeamTimeAvail.SelectedItem.ToString();
 
+            string startTime = selectedTime.Substring(0, 5);
+            string endTime = selectedTime.Substring(7);
+
+            //TODO: figure out how we want to create the event info.
             //Modifications.AddTeamEvent(workEvent, currentUser.TeamID, clientIdsForTeamEvent);
         }
 
@@ -306,6 +335,7 @@ namespace Individual_Project
 
         private void buttonAddMembers_Click(object sender, EventArgs e)
         {
+            buttonTimeSlots.Enabled = true;
             panelMembersToAdd.Visible= true;
             panelEventTeam.Visible = false;
             listBoxMembersToAdd.Items.Clear();
@@ -333,7 +363,7 @@ namespace Individual_Project
 
             var busyTimes = Event.GetTeamBusyTimes(date, clientIdsForTeamEvent);
 
-            //TODO: Use busy time list to determine a set of timeslots to use for event.
+            GetAvailableTimes(busyTimes);
 
         }
 
@@ -361,12 +391,15 @@ namespace Individual_Project
         {
             for (int i = 0; i < 24; i++)
             {
-                comboBoxStartTime.Items.Add($"{i:D2}:00");
-                comboBoxStartTime.Items.Add($"{i:D2}:30");
-
-                comboBoxEndTime.Items.Add($"{i:D2}:30");
-                comboBoxEndTime.Items.Add($"{i:D2}:30");
+                for (int j = 0;j <= 30; j += 30)
+                {
+                    comboBoxStartTime.Items.Add($"{i:D2}:{j:D2}");
+                    comboBoxEndTime.Items.Add($"{i:D2}:{j:D2}");
+                    comboBoxDurationTeamEvent.Items.Add($"{i:D2}:{j:D2}");
+                }
             }
+            comboBoxDurationTeamEvent.Items.RemoveAt(0);
+            comboBoxDurationTeamEvent.SelectedIndex= 0;
         }
 
         // Adds months for last year, this year and next year to comboBox.
@@ -431,6 +464,44 @@ namespace Individual_Project
             listBoxMembersToAdd.Items.Clear();
             listBoxTeamMembersAdded.Items.Clear();
             listBoxMembersToAdd.Enabled = true;
+        }
+
+        private void GetAvailableTimes(List<Tuple<string, string>> busyTimes)
+        {
+            string duration = comboBoxDurationTeamEvent.SelectedItem.ToString();
+            var split = duration.Split(':');
+            int hours = int.Parse(split[0]);
+            int minutes = int.Parse(split[1]);
+
+            for (int i = 0; i < 24 - hours; i++)
+            {
+                for (int j = 0; j <=30; j += 30)
+                {
+                    bool addToBox = true;
+                    string startTime = $"{i:D2}:{j:D2}";
+                    string endTime;
+
+                    if (j != 0 && minutes != 0)
+                    {
+                        endTime = $"{i + hours + 1:D2}:00";
+                    }
+                    else
+                    {
+                        endTime = $"{i + hours:D2}:{j + minutes:D2}";
+                    }
+                    
+                    foreach (var tuple in busyTimes)
+                    {
+                        string busyStart = tuple.Item1;
+                        string busyEnd = tuple.Item2;
+                        if (endTime.CompareTo(busyStart) >= 0 || startTime.CompareTo(busyEnd) <= 0)
+                            continue;
+                        else addToBox = false;
+                    }
+                    if (addToBox)
+                        listBoxTeamTimeAvail.Items.Add($"{startTime} - {endTime}");
+                }
+            }
         }
     }
 }

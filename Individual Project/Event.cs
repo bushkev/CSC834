@@ -53,7 +53,7 @@ namespace Individual_Project
             {
                 Event thisEvent = (Event)eList[i];
 
-                if (startTime.CompareTo(thisEvent.EndTime) > 0 || endTime.CompareTo(thisEvent.StartTime) < 0)
+                if (startTime.CompareTo(thisEvent.EndTime) >= 0 || endTime.CompareTo(thisEvent.StartTime) <= 0)
                     continue;
                 else
                     return false;
