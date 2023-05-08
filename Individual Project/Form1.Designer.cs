@@ -88,8 +88,8 @@
             this.labelTimeSlotTitle = new System.Windows.Forms.Label();
             this.listBoxMembersToAdd = new System.Windows.Forms.ListBox();
             this.panelMembersToAdd = new System.Windows.Forms.Panel();
-            this.labelChooseMembersToAdd = new System.Windows.Forms.Label();
             this.buttonCancelMemberAdd = new System.Windows.Forms.Button();
+            this.labelChooseMembersToAdd = new System.Windows.Forms.Label();
             this.panelEvent.SuspendLayout();
             this.panelConflictError.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -493,34 +493,6 @@
             // comboBoxMonth
             // 
             this.comboBoxMonth.FormattingEnabled = true;
-            this.comboBoxMonth.Items.AddRange(new object[] {
-            "2023",
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-            "",
-            "2024",
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December"});
             this.comboBoxMonth.Location = new System.Drawing.Point(500, 6);
             this.comboBoxMonth.MaxDropDownItems = 12;
             this.comboBoxMonth.Name = "comboBoxMonth";
@@ -728,16 +700,6 @@
             this.panelMembersToAdd.TabIndex = 24;
             this.panelMembersToAdd.Visible = false;
             // 
-            // labelChooseMembersToAdd
-            // 
-            this.labelChooseMembersToAdd.AutoSize = true;
-            this.labelChooseMembersToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChooseMembersToAdd.Location = new System.Drawing.Point(55, 16);
-            this.labelChooseMembersToAdd.Name = "labelChooseMembersToAdd";
-            this.labelChooseMembersToAdd.Size = new System.Drawing.Size(183, 16);
-            this.labelChooseMembersToAdd.TabIndex = 29;
-            this.labelChooseMembersToAdd.Text = "Select a team member to add";
-            // 
             // buttonCancelMemberAdd
             // 
             this.buttonCancelMemberAdd.Location = new System.Drawing.Point(61, 207);
@@ -747,6 +709,16 @@
             this.buttonCancelMemberAdd.Text = "Cancel";
             this.buttonCancelMemberAdd.UseVisualStyleBackColor = true;
             this.buttonCancelMemberAdd.Click += new System.EventHandler(this.buttonCancelMemberAdd_Click);
+            // 
+            // labelChooseMembersToAdd
+            // 
+            this.labelChooseMembersToAdd.AutoSize = true;
+            this.labelChooseMembersToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChooseMembersToAdd.Location = new System.Drawing.Point(55, 16);
+            this.labelChooseMembersToAdd.Name = "labelChooseMembersToAdd";
+            this.labelChooseMembersToAdd.Size = new System.Drawing.Size(183, 16);
+            this.labelChooseMembersToAdd.TabIndex = 29;
+            this.labelChooseMembersToAdd.Text = "Select a team member to add";
             // 
             // FormMain
             // 

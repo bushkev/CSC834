@@ -21,12 +21,12 @@ namespace Individual_Project
                     $" Values ( @eventName, @startTime, @endTime, @location, @description, @eventDay, @clientID )";
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
-                cmd.Parameters.AddWithValue("@eventName", currentEvent.getTitle());
-                cmd.Parameters.AddWithValue("@startTime", currentEvent.getStartTime());
-                cmd.Parameters.AddWithValue("@endTime", currentEvent.getEndTime());
-                cmd.Parameters.AddWithValue("@location", currentEvent.getLocation());
-                cmd.Parameters.AddWithValue("@description", currentEvent.getDescription());
-                cmd.Parameters.AddWithValue("@eventDay", currentEvent.getDate());
+                cmd.Parameters.AddWithValue("@eventName", currentEvent.Title);
+                cmd.Parameters.AddWithValue("@startTime", currentEvent.StartTime);
+                cmd.Parameters.AddWithValue("@endTime", currentEvent.EndTime);
+                cmd.Parameters.AddWithValue("@location", currentEvent.Location);
+                cmd.Parameters.AddWithValue("@description", currentEvent.Description);
+                cmd.Parameters.AddWithValue("@eventDay", currentEvent.Date);
                 cmd.Parameters.AddWithValue("@clientID", clientID);
 
                 cmd.ExecuteNonQuery();
@@ -86,11 +86,11 @@ namespace Individual_Project
                     $" Where eventID = @eventID";
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
-                cmd.Parameters.AddWithValue("@eventName", currentEvent.getTitle());
-                cmd.Parameters.AddWithValue("@startTime", currentEvent.getStartTime());
-                cmd.Parameters.AddWithValue("@endTime", currentEvent.getEndTime());
-                cmd.Parameters.AddWithValue("@location", currentEvent.getLocation());
-                cmd.Parameters.AddWithValue("@description", currentEvent.getDescription());
+                cmd.Parameters.AddWithValue("@eventName", currentEvent.Title);
+                cmd.Parameters.AddWithValue("@startTime", currentEvent.StartTime);
+                cmd.Parameters.AddWithValue("@endTime", currentEvent.EndTime);
+                cmd.Parameters.AddWithValue("@location", currentEvent.Location);
+                cmd.Parameters.AddWithValue("@description", currentEvent.Description);
                 cmd.Parameters.AddWithValue("@eventID", eventID);
 
                 cmd.ExecuteNonQuery();
@@ -129,12 +129,12 @@ namespace Individual_Project
                         $" Values ( @eventName, @startTime, @endTime, @location, @description, @eventDay, @clientID, @teamEventID )";
 
                 MySqlCommand cmd = new MySqlCommand(sqlQuery, conn);
-                cmd.Parameters.AddWithValue("@eventName", currentEvent.getTitle());
-                cmd.Parameters.AddWithValue("@startTime", currentEvent.getStartTime());
-                cmd.Parameters.AddWithValue("@endTime", currentEvent.getEndTime());
-                cmd.Parameters.AddWithValue("@location", currentEvent.getLocation());
-                cmd.Parameters.AddWithValue("@description", currentEvent.getDescription());
-                cmd.Parameters.AddWithValue("@eventDay", currentEvent.getDate());
+                cmd.Parameters.AddWithValue("@eventName", currentEvent.Title);
+                cmd.Parameters.AddWithValue("@startTime", currentEvent.StartTime);
+                cmd.Parameters.AddWithValue("@endTime", currentEvent.EndTime);
+                cmd.Parameters.AddWithValue("@location", currentEvent.Location);
+                cmd.Parameters.AddWithValue("@description", currentEvent.Description);
+                cmd.Parameters.AddWithValue("@eventDay", currentEvent.Date);
                 cmd.Parameters.AddWithValue("@teamEventID", teamEventID);
                 cmd.Parameters.Add("@clientID", MySqlDbType.Int32);
 

@@ -14,6 +14,8 @@ namespace Individual_Project
         String location;
         String date;
         String description;
+        int day;
+        int month;
         string teamEventID;
         int eventID;
 
@@ -31,46 +33,19 @@ namespace Individual_Project
         }
 
         #region getters
-        public String getStartTime()
-        {
-            return startTime;
-        }
-
-        public String getEndTime()
-        {
-            return endTime;
-        }
-
-        public String getLocation()
-        {
-            return location;
-        }
-        public String getTitle()
-        {
-            return title;
-        }
-
-        public String getDescription()
-        {
-            return description;
-        }
-        public String getDate()
-        {
-            return date;
-        }
-
-        public string getTeamEventID()
-        {
-            return teamEventID;
-        }
-
-        public int getEventID()
-        {
-            return eventID;
-        }
+        public string StartTime { get => startTime.Substring(0,5); }
+        public string EndTime { get => endTime.Substring(0, 5); }
+        public string Location { get => location; }
+        public string Title { get => title; }
+        public string Description { get => description; }
+        public string Date { get => date; }
+        public string TeamEventID { get => teamEventID; }
+        public int EventID { get => eventID; }
+        public int Day { get => int.Parse(date.Substring(8)); }
+        public int Month { get => int.Parse(date.Substring(5, 2)); }
         #endregion
 
-        public bool checkConflict(ArrayList eList)
+        public bool CheckConflict(ArrayList eList)
         {
             if (eList.Count == 0)
                 return true;
@@ -78,7 +53,7 @@ namespace Individual_Project
             {
                 Event thisEvent = (Event)eList[i];
 
-                if (startTime.CompareTo(thisEvent.getEndTime()) > 0 || endTime.CompareTo(thisEvent.getStartTime()) < 0)
+                if (startTime.CompareTo(thisEvent.EndTime) > 0 || endTime.CompareTo(thisEvent.StartTime) < 0)
                     continue;
                 else
                     return false;
@@ -87,7 +62,7 @@ namespace Individual_Project
         }
 
 
-        public void updateEventValue(String t, String st, String et, String l, String d, String ds, string te = null)
+        public void UpdateEventValue(String t, String st, String et, String l, String d, String ds, string te = null)
         {
             title = t;
             startTime = st;
@@ -98,7 +73,7 @@ namespace Individual_Project
             teamEventID = te;
         }
 
-        public static ArrayList getEventList(string dateString, int clientID)
+        public static ArrayList GetEventList(string dateString, int clientID)
         {
             ArrayList eventList = new ArrayList();  //a list to save the events
 
@@ -183,6 +158,50 @@ namespace Individual_Project
             conn.Close();
 
             return busyTimes;
+        }
+
+        public static ArrayList GetMonthlyEventList(int month, int clientID)
+        {
+            ArrayList eventList = new ArrayList();  //a list to save the events
+
+            //prepare an SQL query to retrieve all the events on the same, specified date
+            DataTable myTable = new DataTable();
+            MySqlConnection conn = new MySqlConnection(GlobalVariables.ConnString);
+            try
+            {
+                conn.Open();
+                string sql = $"SELECT * FROM {GlobalVariables.EventsTableName}" +
+                                $" WHERE MONTH(eventday) = @month" +
+                                $" AND clientID=@clientID" +
+                                $" ORDER BY startTime DESC";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@month", month);
+                cmd.Parameters.AddWithValue("@clientID", clientID);
+                MySqlDataAdapter myAdapter = new MySqlDataAdapter(cmd);
+                myAdapter.Fill(myTable);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            conn.Close();
+
+            //convert the retrieved data to events and save them to the list
+            foreach (DataRow row in myTable.Rows)
+            {
+                Event newEvent = new Event();
+                newEvent.title = row["eventname"].ToString();
+                newEvent.date = ((DateTime)row["eventday"]).ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                newEvent.startTime = row["startTime"].ToString();
+                newEvent.endTime = row["endTime"].ToString();
+                newEvent.description = row["description"].ToString();
+                newEvent.location = row["location"].ToString();
+                newEvent.teamEventID = row["teamEventID"].ToString();
+                newEvent.eventID = Convert.ToInt32(row["eventID"]);
+
+                eventList.Add(newEvent);
+            }
+            return eventList;  //return the event list
         }
     }
 }

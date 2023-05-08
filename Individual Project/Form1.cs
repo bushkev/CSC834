@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Reflection;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Individual_Project
@@ -21,110 +20,7 @@ namespace Individual_Project
         {
             InitializeComponent();
             initializeTimeSections();
-        }
-
-        private void initializeTimeSections()
-        {
-            //textBox2.Visible = false;
-            comboBoxStartTime.Items.Add("00:00");
-            comboBoxStartTime.Items.Add("00:30");
-            comboBoxStartTime.Items.Add("01:00");
-            comboBoxStartTime.Items.Add("01:30");
-            comboBoxStartTime.Items.Add("02:00");
-            comboBoxStartTime.Items.Add("02:30");
-            comboBoxStartTime.Items.Add("03:00");
-            comboBoxStartTime.Items.Add("03:30");
-            comboBoxStartTime.Items.Add("04:00");
-            comboBoxStartTime.Items.Add("04:30");
-            comboBoxStartTime.Items.Add("05:00");
-            comboBoxStartTime.Items.Add("05:30");
-            comboBoxStartTime.Items.Add("06:00");
-            comboBoxStartTime.Items.Add("06:30");
-            comboBoxStartTime.Items.Add("07:00");
-            comboBoxStartTime.Items.Add("07:30");
-            comboBoxStartTime.Items.Add("08:00");
-            comboBoxStartTime.Items.Add("08:30");
-            comboBoxStartTime.Items.Add("09:00");
-            comboBoxStartTime.Items.Add("09:30");
-            comboBoxStartTime.Items.Add("10:00");
-            comboBoxStartTime.Items.Add("10:30");
-            comboBoxStartTime.Items.Add("11:00");
-            comboBoxStartTime.Items.Add("11:30");
-            comboBoxStartTime.Items.Add("12:00");
-            comboBoxStartTime.Items.Add("12:30");
-            comboBoxStartTime.Items.Add("13:00");
-            comboBoxStartTime.Items.Add("13:30");
-            comboBoxStartTime.Items.Add("14:00");
-            comboBoxStartTime.Items.Add("14:30");
-            comboBoxStartTime.Items.Add("15:00");
-            comboBoxStartTime.Items.Add("15:30");
-            comboBoxStartTime.Items.Add("16:00");
-            comboBoxStartTime.Items.Add("16:30");
-            comboBoxStartTime.Items.Add("17:00");
-            comboBoxStartTime.Items.Add("17:30");
-            comboBoxStartTime.Items.Add("18:00");
-            comboBoxStartTime.Items.Add("18:30");
-            comboBoxStartTime.Items.Add("19:00");
-            comboBoxStartTime.Items.Add("19:30");
-            comboBoxStartTime.Items.Add("20:00");
-            comboBoxStartTime.Items.Add("20:30");
-            comboBoxStartTime.Items.Add("21:00");
-            comboBoxStartTime.Items.Add("21:30");
-            comboBoxStartTime.Items.Add("22:00");
-            comboBoxStartTime.Items.Add("22:30");
-            comboBoxStartTime.Items.Add("23:00");
-            comboBoxStartTime.Items.Add("23:30");
-            comboBoxStartTime.Items.Add("24:00");
-
-            comboBoxEndTime.Items.Add("00:00");
-            comboBoxEndTime.Items.Add("00:30");
-            comboBoxEndTime.Items.Add("01:00");
-            comboBoxEndTime.Items.Add("01:30");
-            comboBoxEndTime.Items.Add("02:00");
-            comboBoxEndTime.Items.Add("02:30");
-            comboBoxEndTime.Items.Add("03:00");
-            comboBoxEndTime.Items.Add("03:30");
-            comboBoxEndTime.Items.Add("04:00");
-            comboBoxEndTime.Items.Add("04:30");
-            comboBoxEndTime.Items.Add("05:00");
-            comboBoxEndTime.Items.Add("05:30");
-            comboBoxEndTime.Items.Add("06:00");
-            comboBoxEndTime.Items.Add("06:30");
-            comboBoxEndTime.Items.Add("07:00");
-            comboBoxEndTime.Items.Add("07:30");
-            comboBoxEndTime.Items.Add("08:00");
-            comboBoxEndTime.Items.Add("08:30");
-            comboBoxEndTime.Items.Add("09:00");
-            comboBoxEndTime.Items.Add("09:30");
-            comboBoxEndTime.Items.Add("10:00");
-            comboBoxEndTime.Items.Add("10:30");
-            comboBoxEndTime.Items.Add("11:00");
-            comboBoxEndTime.Items.Add("11:30");
-            comboBoxEndTime.Items.Add("12:00");
-            comboBoxEndTime.Items.Add("12:30");
-            comboBoxEndTime.Items.Add("13:00");
-            comboBoxEndTime.Items.Add("13:30");
-            comboBoxEndTime.Items.Add("14:00");
-            comboBoxEndTime.Items.Add("14:30");
-            comboBoxEndTime.Items.Add("15:00");
-            comboBoxEndTime.Items.Add("15:30");
-            comboBoxEndTime.Items.Add("16:00");
-            comboBoxEndTime.Items.Add("16:30");
-            comboBoxEndTime.Items.Add("17:00");
-            comboBoxEndTime.Items.Add("17:30");
-            comboBoxEndTime.Items.Add("18:00");
-            comboBoxEndTime.Items.Add("18:30");
-            comboBoxEndTime.Items.Add("19:00");
-            comboBoxEndTime.Items.Add("19:30");
-            comboBoxEndTime.Items.Add("20:00");
-            comboBoxEndTime.Items.Add("20:30");
-            comboBoxEndTime.Items.Add("21:00");
-            comboBoxEndTime.Items.Add("21:30");
-            comboBoxEndTime.Items.Add("22:00");
-            comboBoxEndTime.Items.Add("22:30");
-            comboBoxEndTime.Items.Add("23:00");
-            comboBoxEndTime.Items.Add("23:30");
-            comboBoxEndTime.Items.Add("24:00");
+            initializeMonthSections();
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)
@@ -157,7 +53,7 @@ namespace Individual_Project
             Event workEvent = new Event(textBoxEventTitle.Text, comboBoxStartTime.SelectedItem.ToString(), comboBoxEndTime.SelectedItem.ToString(),
                textBoxEventLocation.Text, thisDate, textBoxEventDescription.Text);
             
-            bool noConflict = workEvent.checkConflict(eList);
+            bool noConflict = workEvent.CheckConflict(eList);
 
             panelEvent.Visible = false;
             buttonAdd.BackColor = DefaultBackColor;
@@ -178,7 +74,7 @@ namespace Individual_Project
                 }
                 else
                 {
-                    Modifications.EditEvent(workEvent, selectedEvent.getEventID());
+                    Modifications.EditEvent(workEvent, selectedEvent.EventID);
                 }
 
                 ViewEvents(thisDate);
@@ -218,11 +114,11 @@ namespace Individual_Project
         {
             selectedEvent = (Event)eList[listBoxEventsDaily.SelectedIndex];
             panelEvent.Visible = true;
-            textBoxEventTitle.Text = selectedEvent.getTitle();
-            textBoxEventStartTime.Text = selectedEvent.getStartTime();
-            textBoxEventEndTime.Text = selectedEvent.getEndTime();
-            textBoxEventLocation.Text = selectedEvent.getLocation();
-            textBoxEventDescription.Text = selectedEvent.getDescription();
+            textBoxEventTitle.Text = selectedEvent.Title;
+            textBoxEventStartTime.Text = selectedEvent.StartTime;
+            textBoxEventEndTime.Text = selectedEvent.EndTime;
+            textBoxEventLocation.Text = selectedEvent.Location;
+            textBoxEventDescription.Text = selectedEvent.Description;
         }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -236,7 +132,7 @@ namespace Individual_Project
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             //Delete Event Button
-            if (selectedEvent.getEventID() != 0)
+            if (selectedEvent.EventID != 0)
             {
                 buttonDelete.BackColor = Color.Red;
                 panelEvent.Visible = false;
@@ -257,9 +153,9 @@ namespace Individual_Project
             buttonDelete.BackColor = DefaultBackColor;
             panelDeleteConfirm.Visible = false;
 
-            if (Modifications.DeleteEvent(selectedEvent.getEventID()))
+            if (Modifications.DeleteEvent(selectedEvent.EventID))
             {
-                ViewEvents(selectedEvent.getDate());
+                ViewEvents(selectedEvent.Date);
             }
         }
 
@@ -272,13 +168,13 @@ namespace Individual_Project
             textBoxEventStartTime.Visible = false;
             comboBoxStartTime.Visible = true;
 
-            int startTimeIndex = comboBoxEndTime.FindString(selectedEvent.getStartTime().Substring(0, 5));
+            int startTimeIndex = comboBoxEndTime.FindString(selectedEvent.StartTime.Substring(0, 5));
             comboBoxStartTime.SelectedIndex = startTimeIndex;
 
             textBoxEventEndTime.Visible = false;
             comboBoxEndTime.Visible = true;
 
-            int endTimeIndex = comboBoxEndTime.FindString(selectedEvent.getEndTime().Substring(0, 5));
+            int endTimeIndex = comboBoxEndTime.FindString(selectedEvent.EndTime.Substring(0, 5));
             comboBoxEndTime.SelectedIndex = endTimeIndex;
 
             buttonSaveEvent.Visible = true;
@@ -345,29 +241,21 @@ namespace Individual_Project
         {
             //View Monthly Events button
             comboBoxMonth.Visible = true;
-            string thisMonth = DateTime.Now.ToString("MMMM");
-            string thisYear = DateTime.Now.ToString("yyyy");
-            labelEventsOn.Text = "Events for the month of " + thisMonth + " " + thisYear;
+            String thisDate = DateTime.Today.ToString("yyyy-MM-dd");
 
-            //Populate listBox1 with this month's events
-            listBoxEventsDaily.Items.Clear();
-            for (int i = 0; i < eList.Count; i++)
-            {
-                Event currentEvent = (Event)eList[i];
-                String aString = currentEvent.getTitle();
-                listBoxEventsDaily.Items.Add(aString);
-            }
-            //TODO: make this show a list of all events for the month, not just for whatever day is selected
+            ViewEvents(thisDate, true);
         }
 
         private void comboBoxMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Select Month Drop-Down Menu
-            string month = comboBoxMonth.SelectedItem.ToString();
-            labelEventsOn.Text = "Events for the month of " + month + " 2023";
+            string selection = comboBoxMonth.SelectedItem.ToString();
+            string month = selection.Substring(7); 
+            var monthNumber = DateTime.ParseExact(month, "MMMM", CultureInfo.CurrentCulture).Month;
+            string year = selection.Substring(0,4);
+            string thisDate = $"{year}-{monthNumber:d2}-01)";
 
-            //TODO: make label1 text display correct year from the dropdown list
-            //TODO: add functionality of populating the listbox with the selected month's events
+            ViewEvents(thisDate, true);
         }
 
         private void buttonTeamEvent_Click(object sender, EventArgs e)
@@ -469,17 +357,58 @@ namespace Individual_Project
             panelEventTeam.Visible = true;
         }
 
-        private void ViewEvents(string date)
+        private void initializeTimeSections()
         {
-            labelEventsOn.Text = "Events on " + date;
-            eList = Event.getEventList(date, currentUser.ClientID);
+            for (int i = 0; i < 24; i++)
+            {
+                comboBoxStartTime.Items.Add($"{i:D2}:00");
+                comboBoxStartTime.Items.Add($"{i:D2}:30");
 
+                comboBoxEndTime.Items.Add($"{i:D2}:30");
+                comboBoxEndTime.Items.Add($"{i:D2}:30");
+            }
+        }
+
+        // Adds months for last year, this year and next year to comboBox.
+        private void initializeMonthSections()
+        {
+            for (int i = -1; i <= 1; i++)
+            {
+                for(int j = 1; j <= 12; j++)
+                {
+                    var month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(j);
+                    comboBoxMonth.Items.Add($"{DateTime.Today.Year + i} - {month}");
+                }
+            }
+        }
+
+        private void ViewEvents(string date, bool isMonthly = false)
+        {
             listBoxEventsDaily.Items.Clear();
+
+            if (isMonthly)
+            {
+                int monthNumber = int.Parse(date.Substring(5, 2));
+                string month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(monthNumber);
+                int year = int.Parse(date.Substring(0, 4));
+
+                labelEventsOn.Text = $"Events for the month of {month} {year}";
+                eList = Event.GetMonthlyEventList(monthNumber, currentUser.ClientID);
+            }
+            else
+            {
+                labelEventsOn.Text = "Events on " + date;
+                eList = Event.GetEventList(date, currentUser.ClientID);
+            }
 
             for (int i = 0; i < eList.Count; i++)
             {
                 Event currentEvent = (Event)eList[i];
-                string aString = currentEvent.getStartTime() + "  " + currentEvent.getTitle();
+
+                string aString = "";
+                if (isMonthly) aString += $"{currentEvent.Day} at ";
+                aString += $"{currentEvent.StartTime} - {currentEvent.Title}";
+
                 listBoxEventsDaily.Items.Add(aString);
             }
         }
