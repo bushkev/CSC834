@@ -144,6 +144,7 @@ namespace Individual_Project
         {
             //Cancel deleting event button
             buttonDelete.BackColor = DefaultBackColor;
+            buttonDeleteTeamEvent.BackColor = DefaultBackColor;
             panelDeleteConfirm.Visible = false;
         }
 
@@ -276,7 +277,6 @@ namespace Individual_Project
             //Add Team Event button
             //TODO: maybe set up team event box to be seperate from event add. This will mean to move the button, and add the text box and labels for description, location, and title.
             buttonTimeSlots.Enabled= false;
-            buttonTeamEvent.Visible = false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
 
@@ -295,7 +295,7 @@ namespace Individual_Project
             //Delete Team Event button
             if (selectedEvent.EventID != 0)
             {
-                buttonDelete.BackColor = Color.Red;
+                buttonDeleteTeamEvent.BackColor = Color.Red;
                 panelEvent.Visible = false;
                 panelDeleteConfirm.Visible = true;
             }
