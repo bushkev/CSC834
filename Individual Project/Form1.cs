@@ -132,12 +132,16 @@ namespace Individual_Project
         private void buttonDelete_Click(object sender, EventArgs e)
         {
             //Delete Event Button
-            if (selectedEvent.EventID != 0)
+            //Check if an event is selected before allowing deletion
+            if (panelEvent.Visible == true)
             {
-                buttonDelete.BackColor = Color.Red;
-                panelEvent.Visible = false;
-                panelDeleteConfirm.Visible = true;
-            }
+                if (selectedEvent.EventID != 0)
+                {
+                    buttonDelete.BackColor = Color.Red;
+                    panelEvent.Visible = false;
+                    panelDeleteConfirm.Visible = true;
+                }
+            }                
         }
 
         private void buttonCancelDelete_Click(object sender, EventArgs e)
@@ -173,27 +177,32 @@ namespace Individual_Project
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             //Edit Event Button
-            buttonEdit.BackColor = Color.Red;
 
-            //Allow edits toEventForm();
-            textBoxEventStartTime.Visible = false;
-            comboBoxStartTime.Visible = true;
+            //Check if an event is selected before allowing edits
+            if (panelEvent.Visible == true)
+            {
+                buttonEdit.BackColor = Color.Red;
 
-            int startTimeIndex = comboBoxEndTime.FindString(selectedEvent.StartTime.Substring(0, 5));
-            comboBoxStartTime.SelectedIndex = startTimeIndex;
+                //Allow edits toEventForm();
+                textBoxEventStartTime.Visible = false;
+                comboBoxStartTime.Visible = true;
 
-            textBoxEventEndTime.Visible = false;
-            comboBoxEndTime.Visible = true;
+                int startTimeIndex = comboBoxEndTime.FindString(selectedEvent.StartTime.Substring(0, 5));
+                comboBoxStartTime.SelectedIndex = startTimeIndex;
 
-            int endTimeIndex = comboBoxEndTime.FindString(selectedEvent.EndTime.Substring(0, 5));
-            comboBoxEndTime.SelectedIndex = endTimeIndex;
+                textBoxEventEndTime.Visible = false;
+                comboBoxEndTime.Visible = true;
 
-            buttonSaveEvent.Visible = true;
-            buttonCancelEvent.Visible = true;
-            buttonAdd.Enabled = false;
-            buttonDelete.Enabled = false;
-            buttonEdit.Enabled = false;
-            buttonViewMonthly.Enabled = false;
+                int endTimeIndex = comboBoxEndTime.FindString(selectedEvent.EndTime.Substring(0, 5));
+                comboBoxEndTime.SelectedIndex = endTimeIndex;
+
+                buttonSaveEvent.Visible = true;
+                buttonCancelEvent.Visible = true;
+                buttonAdd.Enabled = false;
+                buttonDelete.Enabled = false;
+                buttonEdit.Enabled = false;
+                buttonViewMonthly.Enabled = false;
+            }            
         }
 
         private void buttonContinueConflict_Click(object sender, EventArgs e)

@@ -137,7 +137,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(9, 195);
+            this.buttonAdd.Location = new System.Drawing.Point(9, 218);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(227, 40);
             this.buttonAdd.TabIndex = 3;
@@ -148,7 +148,7 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(9, 241);
+            this.buttonDelete.Location = new System.Drawing.Point(9, 264);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(227, 40);
             this.buttonDelete.TabIndex = 4;
@@ -159,7 +159,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(9, 287);
+            this.buttonEdit.Location = new System.Drawing.Point(9, 310);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(227, 40);
             this.buttonEdit.TabIndex = 6;
@@ -170,7 +170,7 @@
             // 
             // buttonViewMonthly
             // 
-            this.buttonViewMonthly.Location = new System.Drawing.Point(9, 333);
+            this.buttonViewMonthly.Location = new System.Drawing.Point(9, 356);
             this.buttonViewMonthly.Name = "buttonViewMonthly";
             this.buttonViewMonthly.Size = new System.Drawing.Size(227, 40);
             this.buttonViewMonthly.TabIndex = 7;
@@ -322,7 +322,7 @@
             // 
             // buttonTeamEvent
             // 
-            this.buttonTeamEvent.Location = new System.Drawing.Point(9, 379);
+            this.buttonTeamEvent.Location = new System.Drawing.Point(9, 402);
             this.buttonTeamEvent.Name = "buttonTeamEvent";
             this.buttonTeamEvent.Size = new System.Drawing.Size(227, 40);
             this.buttonTeamEvent.TabIndex = 21;
@@ -369,7 +369,7 @@
             this.labelConflictErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelConflictErrorMessage.Location = new System.Drawing.Point(26, 64);
             this.labelConflictErrorMessage.Name = "labelConflictErrorMessage";
-            this.labelConflictErrorMessage.Size = new System.Drawing.Size(250, 16);
+            this.labelConflictErrorMessage.Size = new System.Drawing.Size(271, 17);
             this.labelConflictErrorMessage.TabIndex = 1;
             this.labelConflictErrorMessage.Text = "This event conflicts with an existing event.";
             // 
@@ -380,7 +380,7 @@
             this.labelConflictErrorTitle.ForeColor = System.Drawing.Color.Red;
             this.labelConflictErrorTitle.Location = new System.Drawing.Point(122, 29);
             this.labelConflictErrorTitle.Name = "labelConflictErrorTitle";
-            this.labelConflictErrorTitle.Size = new System.Drawing.Size(67, 17);
+            this.labelConflictErrorTitle.Size = new System.Drawing.Size(72, 18);
             this.labelConflictErrorTitle.TabIndex = 0;
             this.labelConflictErrorTitle.Text = "ERROR!";
             // 
@@ -425,7 +425,7 @@
             this.labelErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelErrorMessage.Location = new System.Drawing.Point(3, 69);
             this.labelErrorMessage.Name = "labelErrorMessage";
-            this.labelErrorMessage.Size = new System.Drawing.Size(272, 16);
+            this.labelErrorMessage.Size = new System.Drawing.Size(294, 17);
             this.labelErrorMessage.TabIndex = 4;
             this.labelErrorMessage.Text = "Either the username or password is incorrect.";
             // 
@@ -436,7 +436,7 @@
             this.labelLoginErrorTitle.ForeColor = System.Drawing.Color.Red;
             this.labelLoginErrorTitle.Location = new System.Drawing.Point(107, 30);
             this.labelLoginErrorTitle.Name = "labelLoginErrorTitle";
-            this.labelLoginErrorTitle.Size = new System.Drawing.Size(67, 17);
+            this.labelLoginErrorTitle.Size = new System.Drawing.Size(72, 18);
             this.labelLoginErrorTitle.TabIndex = 4;
             this.labelLoginErrorTitle.Text = "ERROR!";
             // 
@@ -446,7 +446,7 @@
             this.labelEnterCreds.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEnterCreds.Location = new System.Drawing.Point(54, 59);
             this.labelEnterCreds.Name = "labelEnterCreds";
-            this.labelEnterCreds.Size = new System.Drawing.Size(266, 16);
+            this.labelEnterCreds.Size = new System.Drawing.Size(283, 17);
             this.labelEnterCreds.TabIndex = 5;
             this.labelEnterCreds.Text = "Please enter your username and password.";
             // 
@@ -456,7 +456,7 @@
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPassword.Location = new System.Drawing.Point(70, 131);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(53, 13);
+            this.labelPassword.Size = new System.Drawing.Size(67, 16);
             this.labelPassword.TabIndex = 4;
             this.labelPassword.Text = "Password";
             // 
@@ -466,7 +466,7 @@
             this.labelUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.854546F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUserName.Location = new System.Drawing.Point(70, 97);
             this.labelUserName.Name = "labelUserName";
-            this.labelUserName.Size = new System.Drawing.Size(55, 13);
+            this.labelUserName.Size = new System.Drawing.Size(70, 16);
             this.labelUserName.TabIndex = 3;
             this.labelUserName.Text = "Username";
             // 
@@ -657,7 +657,7 @@
             this.labelEventForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEventForm.Location = new System.Drawing.Point(98, 9);
             this.labelEventForm.Name = "labelEventForm";
-            this.labelEventForm.Size = new System.Drawing.Size(114, 16);
+            this.labelEventForm.Size = new System.Drawing.Size(120, 17);
             this.labelEventForm.TabIndex = 21;
             this.labelEventForm.Text = "Team Event Form";
             // 
@@ -728,7 +728,7 @@
             this.labelTimeSlotTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTimeSlotTitle.Location = new System.Drawing.Point(106, 36);
             this.labelTimeSlotTitle.Name = "labelTimeSlotTitle";
-            this.labelTimeSlotTitle.Size = new System.Drawing.Size(127, 16);
+            this.labelTimeSlotTitle.Size = new System.Drawing.Size(131, 17);
             this.labelTimeSlotTitle.TabIndex = 22;
             this.labelTimeSlotTitle.Text = "Possible Time Slots";
             // 
@@ -768,13 +768,13 @@
             this.labelChooseMembersToAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.163636F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelChooseMembersToAdd.Location = new System.Drawing.Point(55, 16);
             this.labelChooseMembersToAdd.Name = "labelChooseMembersToAdd";
-            this.labelChooseMembersToAdd.Size = new System.Drawing.Size(183, 16);
+            this.labelChooseMembersToAdd.Size = new System.Drawing.Size(193, 17);
             this.labelChooseMembersToAdd.TabIndex = 29;
             this.labelChooseMembersToAdd.Text = "Select a team member to add";
             // 
             // buttonDeleteTeamEvent
             // 
-            this.buttonDeleteTeamEvent.Location = new System.Drawing.Point(9, 425);
+            this.buttonDeleteTeamEvent.Location = new System.Drawing.Point(9, 448);
             this.buttonDeleteTeamEvent.Name = "buttonDeleteTeamEvent";
             this.buttonDeleteTeamEvent.Size = new System.Drawing.Size(227, 40);
             this.buttonDeleteTeamEvent.TabIndex = 25;
@@ -787,7 +787,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 486);
+            this.ClientSize = new System.Drawing.Size(919, 518);
             this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.panelEventTeam);
             this.Controls.Add(this.buttonDeleteTeamEvent);
