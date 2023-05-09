@@ -279,7 +279,9 @@ namespace Individual_Project
             buttonTimeSlots.Enabled= false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
-
+            textBoxEventTitle.Text = selectedEvent.Title;
+            textBoxEventLocation.Text = selectedEvent.Location;
+            textBoxEventDescription.Text = selectedEvent.Description;
             membersToChooseList = new List<TeamMember>();
             clientIdsForTeamEvent = new List<int>();
 
