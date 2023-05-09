@@ -152,6 +152,7 @@ namespace Individual_Project
         {
             //Confirm deleting event button
             buttonDelete.BackColor = DefaultBackColor;
+            buttonDeleteTeamEvent.BackColor = DefaultBackColor;
             panelDeleteConfirm.Visible = false;
             bool success = false;
 
@@ -275,13 +276,9 @@ namespace Individual_Project
         private void buttonTeamEvent_Click(object sender, EventArgs e)
         {
             //Add Team Event button
-            //TODO: maybe set up team event box to be seperate from event add. This will mean to move the button, and add the text box and labels for description, location, and title.
             buttonTimeSlots.Enabled= false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
-            textBoxEventTitle.Text = selectedEvent.Title;
-            textBoxEventLocation.Text = selectedEvent.Location;
-            textBoxEventDescription.Text = selectedEvent.Description;
             membersToChooseList = new List<TeamMember>();
             clientIdsForTeamEvent = new List<int>();
 
@@ -301,38 +298,6 @@ namespace Individual_Project
                 panelEvent.Visible = false;
                 panelDeleteConfirm.Visible = true;
             }
-        }
-
-        private void buttonSaveTeamEvent_Click(object sender, EventArgs e)
-        {
-            //Save Potential Time Slots Button
-            string selectedTime = listBoxTeamTimeAvail.SelectedItem.ToString();
-
-            string startTime = selectedTime.Substring(0, 5);
-            string endTime = selectedTime.Substring(7);
-
-            //TODO: figure out how we want to create the event info.
-            //Modifications.AddTeamEvent(workEvent, currentUser.TeamID, clientIdsForTeamEvent);
-        }
-
-        private void buttonCancelTeamEvent_Click(object sender, EventArgs e)
-        {
-            //Cancel Potential Time Slots Button
-            panelEventTeam.Visible = false;
-            buttonAdd.Enabled = true;
-            buttonDelete.Enabled = true;
-            buttonEdit.Enabled = true;
-            buttonViewMonthly.Enabled = true;
-            buttonAdd.BackColor = DefaultBackColor;
-            buttonEdit.BackColor = DefaultBackColor;
-            panelTimeSlotChoice.Visible = false;
-
-            if (eList.Count != 0 && listBoxEventsDaily.SelectedIndex >= 0)
-            {
-                ListBoxEventsDaily_SelectedIndexChanged(sender, e);
-            }
-
-            CancelTeamAdd();
         }
 
         private void buttonAddMembers_Click(object sender, EventArgs e)
@@ -387,6 +352,46 @@ namespace Individual_Project
         {
             panelMembersToAdd.Visible = false;
             panelEventTeam.Visible = true;
+        }
+
+        private void buttonSaveTeamEvent_Click(object sender, EventArgs e)
+        {
+            //Save Potential Time Slots Button
+            string selectedTime = listBoxTeamTimeAvail.SelectedItem.ToString();
+            string startTime = selectedTime.Substring(0, 5);
+            string endTime = selectedTime.Substring(7);
+            string date = dateTimePickerTeamEvent.Value.ToString("yyyy-MM-dd");
+            string title = textBoxTeamEventTitle.Text;
+            string location = textBoxTeamEventLocation.Text;
+            string description = textBoxTeamEventDescription .Text;
+
+            Event teamEvent = new Event(title, startTime, endTime, location, date, description);
+
+            if (Modifications.AddTeamEvent(teamEvent, currentUser.TeamID, clientIdsForTeamEvent))
+            {
+                ViewEvents(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
+                panelTimeSlotChoice.Visible = false;
+            }
+        }
+
+        private void buttonCancelTeamEvent_Click(object sender, EventArgs e)
+        {
+            //Cancel Potential Time Slots Button
+            panelEventTeam.Visible = false;
+            buttonAdd.Enabled = true;
+            buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonAdd.BackColor = DefaultBackColor;
+            buttonEdit.BackColor = DefaultBackColor;
+            panelTimeSlotChoice.Visible = false;
+
+            if (eList.Count != 0 && listBoxEventsDaily.SelectedIndex >= 0)
+            {
+                ListBoxEventsDaily_SelectedIndexChanged(sender, e);
+            }
+
+            CancelTeamAdd();
         }
 
         private void initializeTimeSections()

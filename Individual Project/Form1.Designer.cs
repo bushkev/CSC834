@@ -38,7 +38,6 @@
             this.panelEvent = new System.Windows.Forms.Panel();
             this.labelEndTime = new System.Windows.Forms.Label();
             this.comboBoxEndTime = new System.Windows.Forms.ComboBox();
-            this.buttonTeamEvent = new System.Windows.Forms.Button();
             this.comboBoxStartTime = new System.Windows.Forms.ComboBox();
             this.buttonCancelEvent = new System.Windows.Forms.Button();
             this.buttonSaveEvent = new System.Windows.Forms.Button();
@@ -51,6 +50,7 @@
             this.labelLocation = new System.Windows.Forms.Label();
             this.labelStartTime = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.buttonTeamEvent = new System.Windows.Forms.Button();
             this.panelConflictError = new System.Windows.Forms.Panel();
             this.buttonContinueConflict = new System.Windows.Forms.Button();
             this.buttonCancelConfict = new System.Windows.Forms.Button();
@@ -72,6 +72,12 @@
             this.labelDeleteConfirm = new System.Windows.Forms.Label();
             this.buttonCancelDelete = new System.Windows.Forms.Button();
             this.panelEventTeam = new System.Windows.Forms.Panel();
+            this.textBoxTeamEventDescription = new System.Windows.Forms.TextBox();
+            this.textBoxTeamEventLocation = new System.Windows.Forms.TextBox();
+            this.textBoxTeamEventTitle = new System.Windows.Forms.TextBox();
+            this.labelTeamDescription = new System.Windows.Forms.Label();
+            this.labelTeamLocation = new System.Windows.Forms.Label();
+            this.labelTeamTitle = new System.Windows.Forms.Label();
             this.buttonTimeSlots = new System.Windows.Forms.Button();
             this.buttonAddMembers = new System.Windows.Forms.Button();
             this.listBoxTeamMembersAdded = new System.Windows.Forms.ListBox();
@@ -84,12 +90,12 @@
             this.buttonConfirmDelete = new System.Windows.Forms.Button();
             this.panelDeleteConfirm = new System.Windows.Forms.Panel();
             this.panelTimeSlotChoice = new System.Windows.Forms.Panel();
+            this.listBoxTeamTimeAvail = new System.Windows.Forms.ListBox();
             this.labelTimeSlotTitle = new System.Windows.Forms.Label();
             this.listBoxMembersToAdd = new System.Windows.Forms.ListBox();
             this.panelMembersToAdd = new System.Windows.Forms.Panel();
             this.buttonCancelMemberAdd = new System.Windows.Forms.Button();
             this.labelChooseMembersToAdd = new System.Windows.Forms.Label();
-            this.listBoxTeamTimeAvail = new System.Windows.Forms.ListBox();
             this.buttonDeleteTeamEvent = new System.Windows.Forms.Button();
             this.panelEvent.SuspendLayout();
             this.panelConflictError.SuspendLayout();
@@ -213,17 +219,6 @@
             this.comboBoxEndTime.TabIndex = 15;
             this.comboBoxEndTime.Visible = false;
             // 
-            // buttonTeamEvent
-            // 
-            this.buttonTeamEvent.Location = new System.Drawing.Point(9, 379);
-            this.buttonTeamEvent.Name = "buttonTeamEvent";
-            this.buttonTeamEvent.Size = new System.Drawing.Size(227, 40);
-            this.buttonTeamEvent.TabIndex = 21;
-            this.buttonTeamEvent.Text = "Add Team Event";
-            this.buttonTeamEvent.UseVisualStyleBackColor = true;
-            this.buttonTeamEvent.Visible = false;
-            this.buttonTeamEvent.Click += new System.EventHandler(this.buttonTeamEvent_Click);
-            // 
             // comboBoxStartTime
             // 
             this.comboBoxStartTime.FormattingEnabled = true;
@@ -324,6 +319,17 @@
             this.labelTitle.Size = new System.Drawing.Size(27, 13);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Title";
+            // 
+            // buttonTeamEvent
+            // 
+            this.buttonTeamEvent.Location = new System.Drawing.Point(9, 379);
+            this.buttonTeamEvent.Name = "buttonTeamEvent";
+            this.buttonTeamEvent.Size = new System.Drawing.Size(227, 40);
+            this.buttonTeamEvent.TabIndex = 21;
+            this.buttonTeamEvent.Text = "Add Team Event";
+            this.buttonTeamEvent.UseVisualStyleBackColor = true;
+            this.buttonTeamEvent.Visible = false;
+            this.buttonTeamEvent.Click += new System.EventHandler(this.buttonTeamEvent_Click);
             // 
             // panelConflictError
             // 
@@ -524,6 +530,12 @@
             // 
             // panelEventTeam
             // 
+            this.panelEventTeam.Controls.Add(this.textBoxTeamEventDescription);
+            this.panelEventTeam.Controls.Add(this.textBoxTeamEventLocation);
+            this.panelEventTeam.Controls.Add(this.textBoxTeamEventTitle);
+            this.panelEventTeam.Controls.Add(this.labelTeamDescription);
+            this.panelEventTeam.Controls.Add(this.labelTeamLocation);
+            this.panelEventTeam.Controls.Add(this.labelTeamTitle);
             this.panelEventTeam.Controls.Add(this.buttonTimeSlots);
             this.panelEventTeam.Controls.Add(this.buttonAddMembers);
             this.panelEventTeam.Controls.Add(this.listBoxTeamMembersAdded);
@@ -537,11 +549,60 @@
             this.panelEventTeam.TabIndex = 22;
             this.panelEventTeam.Visible = false;
             // 
+            // textBoxTeamEventDescription
+            // 
+            this.textBoxTeamEventDescription.Location = new System.Drawing.Point(26, 161);
+            this.textBoxTeamEventDescription.Multiline = true;
+            this.textBoxTeamEventDescription.Name = "textBoxTeamEventDescription";
+            this.textBoxTeamEventDescription.Size = new System.Drawing.Size(283, 70);
+            this.textBoxTeamEventDescription.TabIndex = 33;
+            // 
+            // textBoxTeamEventLocation
+            // 
+            this.textBoxTeamEventLocation.Location = new System.Drawing.Point(112, 113);
+            this.textBoxTeamEventLocation.Name = "textBoxTeamEventLocation";
+            this.textBoxTeamEventLocation.Size = new System.Drawing.Size(176, 20);
+            this.textBoxTeamEventLocation.TabIndex = 32;
+            // 
+            // textBoxTeamEventTitle
+            // 
+            this.textBoxTeamEventTitle.Location = new System.Drawing.Point(112, 87);
+            this.textBoxTeamEventTitle.Name = "textBoxTeamEventTitle";
+            this.textBoxTeamEventTitle.Size = new System.Drawing.Size(176, 20);
+            this.textBoxTeamEventTitle.TabIndex = 31;
+            // 
+            // labelTeamDescription
+            // 
+            this.labelTeamDescription.AutoSize = true;
+            this.labelTeamDescription.Location = new System.Drawing.Point(35, 141);
+            this.labelTeamDescription.Name = "labelTeamDescription";
+            this.labelTeamDescription.Size = new System.Drawing.Size(60, 13);
+            this.labelTeamDescription.TabIndex = 30;
+            this.labelTeamDescription.Text = "Description";
+            // 
+            // labelTeamLocation
+            // 
+            this.labelTeamLocation.AutoSize = true;
+            this.labelTeamLocation.Location = new System.Drawing.Point(35, 115);
+            this.labelTeamLocation.Name = "labelTeamLocation";
+            this.labelTeamLocation.Size = new System.Drawing.Size(48, 13);
+            this.labelTeamLocation.TabIndex = 29;
+            this.labelTeamLocation.Text = "Location";
+            // 
+            // labelTeamTitle
+            // 
+            this.labelTeamTitle.AutoSize = true;
+            this.labelTeamTitle.Location = new System.Drawing.Point(35, 92);
+            this.labelTeamTitle.Name = "labelTeamTitle";
+            this.labelTeamTitle.Size = new System.Drawing.Size(27, 13);
+            this.labelTeamTitle.TabIndex = 28;
+            this.labelTeamTitle.Text = "Title";
+            // 
             // buttonTimeSlots
             // 
-            this.buttonTimeSlots.Location = new System.Drawing.Point(79, 309);
+            this.buttonTimeSlots.Location = new System.Drawing.Point(179, 303);
             this.buttonTimeSlots.Name = "buttonTimeSlots";
-            this.buttonTimeSlots.Size = new System.Drawing.Size(166, 24);
+            this.buttonTimeSlots.Size = new System.Drawing.Size(130, 30);
             this.buttonTimeSlots.TabIndex = 27;
             this.buttonTimeSlots.Text = "Find Possible Time Slots";
             this.buttonTimeSlots.UseVisualStyleBackColor = true;
@@ -549,9 +610,9 @@
             // 
             // buttonAddMembers
             // 
-            this.buttonAddMembers.Location = new System.Drawing.Point(101, 121);
+            this.buttonAddMembers.Location = new System.Drawing.Point(179, 255);
             this.buttonAddMembers.Name = "buttonAddMembers";
-            this.buttonAddMembers.Size = new System.Drawing.Size(128, 23);
+            this.buttonAddMembers.Size = new System.Drawing.Size(130, 30);
             this.buttonAddMembers.TabIndex = 26;
             this.buttonAddMembers.Text = "Add member";
             this.buttonAddMembers.UseVisualStyleBackColor = true;
@@ -560,24 +621,24 @@
             // listBoxTeamMembersAdded
             // 
             this.listBoxTeamMembersAdded.FormattingEnabled = true;
-            this.listBoxTeamMembersAdded.Location = new System.Drawing.Point(79, 158);
+            this.listBoxTeamMembersAdded.Location = new System.Drawing.Point(26, 241);
             this.listBoxTeamMembersAdded.Name = "listBoxTeamMembersAdded";
-            this.listBoxTeamMembersAdded.Size = new System.Drawing.Size(166, 134);
+            this.listBoxTeamMembersAdded.Size = new System.Drawing.Size(139, 108);
             this.listBoxTeamMembersAdded.TabIndex = 25;
             // 
             // comboBoxDurationTeamEvent
             // 
             this.comboBoxDurationTeamEvent.FormattingEnabled = true;
-            this.comboBoxDurationTeamEvent.Location = new System.Drawing.Point(142, 89);
+            this.comboBoxDurationTeamEvent.Location = new System.Drawing.Point(112, 60);
             this.comboBoxDurationTeamEvent.MaxDropDownItems = 4;
             this.comboBoxDurationTeamEvent.Name = "comboBoxDurationTeamEvent";
-            this.comboBoxDurationTeamEvent.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDurationTeamEvent.Size = new System.Drawing.Size(176, 21);
             this.comboBoxDurationTeamEvent.TabIndex = 24;
             // 
             // labelDuration
             // 
             this.labelDuration.AutoSize = true;
-            this.labelDuration.Location = new System.Drawing.Point(60, 92);
+            this.labelDuration.Location = new System.Drawing.Point(35, 65);
             this.labelDuration.Name = "labelDuration";
             this.labelDuration.Size = new System.Drawing.Size(47, 13);
             this.labelDuration.TabIndex = 23;
@@ -585,7 +646,7 @@
             // 
             // dateTimePickerTeamEvent
             // 
-            this.dateTimePickerTeamEvent.Location = new System.Drawing.Point(63, 45);
+            this.dateTimePickerTeamEvent.Location = new System.Drawing.Point(63, 33);
             this.dateTimePickerTeamEvent.Name = "dateTimePickerTeamEvent";
             this.dateTimePickerTeamEvent.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerTeamEvent.TabIndex = 22;
@@ -653,6 +714,14 @@
             this.panelTimeSlotChoice.TabIndex = 23;
             this.panelTimeSlotChoice.Visible = false;
             // 
+            // listBoxTeamTimeAvail
+            // 
+            this.listBoxTeamTimeAvail.FormattingEnabled = true;
+            this.listBoxTeamTimeAvail.Location = new System.Drawing.Point(109, 69);
+            this.listBoxTeamTimeAvail.Name = "listBoxTeamTimeAvail";
+            this.listBoxTeamTimeAvail.Size = new System.Drawing.Size(124, 134);
+            this.listBoxTeamTimeAvail.TabIndex = 23;
+            // 
             // labelTimeSlotTitle
             // 
             this.labelTimeSlotTitle.AutoSize = true;
@@ -703,14 +772,6 @@
             this.labelChooseMembersToAdd.TabIndex = 29;
             this.labelChooseMembersToAdd.Text = "Select a team member to add";
             // 
-            // listBoxTeamTimeAvail
-            // 
-            this.listBoxTeamTimeAvail.FormattingEnabled = true;
-            this.listBoxTeamTimeAvail.Location = new System.Drawing.Point(109, 69);
-            this.listBoxTeamTimeAvail.Name = "listBoxTeamTimeAvail";
-            this.listBoxTeamTimeAvail.Size = new System.Drawing.Size(124, 134);
-            this.listBoxTeamTimeAvail.TabIndex = 23;
-            // 
             // buttonDeleteTeamEvent
             // 
             this.buttonDeleteTeamEvent.Location = new System.Drawing.Point(9, 425);
@@ -727,8 +788,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 486);
-            this.Controls.Add(this.buttonDeleteTeamEvent);
             this.Controls.Add(this.panelEvent);
+            this.Controls.Add(this.panelEventTeam);
+            this.Controls.Add(this.buttonDeleteTeamEvent);
             this.Controls.Add(this.comboBoxMonth);
             this.Controls.Add(this.buttonTeamEvent);
             this.Controls.Add(this.panelLogin);
@@ -742,7 +804,6 @@
             this.Controls.Add(this.panelDeleteConfirm);
             this.Controls.Add(this.panelConflictError);
             this.Controls.Add(this.panelMembersToAdd);
-            this.Controls.Add(this.panelEventTeam);
             this.Controls.Add(this.panelTimeSlotChoice);
             this.Name = "FormMain";
             this.Text = "Personal Calendar";
@@ -832,6 +893,12 @@
         private System.Windows.Forms.Button buttonCancelMemberAdd;
         private System.Windows.Forms.ListBox listBoxTeamTimeAvail;
         private System.Windows.Forms.Button buttonDeleteTeamEvent;
+        private System.Windows.Forms.TextBox textBoxTeamEventTitle;
+        private System.Windows.Forms.Label labelTeamDescription;
+        private System.Windows.Forms.Label labelTeamLocation;
+        private System.Windows.Forms.Label labelTeamTitle;
+        private System.Windows.Forms.TextBox textBoxTeamEventDescription;
+        private System.Windows.Forms.TextBox textBoxTeamEventLocation;
     }
 }
 
