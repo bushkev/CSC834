@@ -353,6 +353,7 @@ namespace Individual_Project
             buttonTeamEvent.Enabled = false;
             buttonDeleteTeamEvent.Enabled = false;
 
+            cancelAddTeamEvent.Visible = true;
             buttonTeamEvent.BackColor = Color.Red;
             buttonTimeSlots.Enabled= false;
             panelEventTeam.Visible = true;
@@ -601,6 +602,25 @@ namespace Individual_Project
                         listBoxTeamTimeAvail.Items.Add($"{startTime} - {endTime}");
                 }
             }
+        }
+
+        private void cancelAddTeamEvent_Click(object sender, EventArgs e)
+        {
+            //Cancel adding a team event button
+            panelEventTeam.Visible = false;
+            panelMembersToAdd.Visible = false;
+            panelTimeSlotChoice.Visible = false;
+
+            //Reset buttons
+            cancelAddTeamEvent.Visible = false;
+            buttonAdd.Enabled = true;
+            buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
+            buttonTeamEvent.BackColor = DefaultBackColor;
+            buttonDeleteTeamEvent.BackColor = DefaultBackColor;
         }
     }
 }

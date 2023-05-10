@@ -97,6 +97,7 @@
             this.buttonCancelMemberAdd = new System.Windows.Forms.Button();
             this.labelChooseMembersToAdd = new System.Windows.Forms.Label();
             this.buttonDeleteTeamEvent = new System.Windows.Forms.Button();
+            this.cancelAddTeamEvent = new System.Windows.Forms.Button();
             this.panelEvent.SuspendLayout();
             this.panelConflictError.SuspendLayout();
             this.panelLogin.SuspendLayout();
@@ -236,6 +237,7 @@
             this.buttonCancelEvent.TabIndex = 14;
             this.buttonCancelEvent.Text = "Cancel";
             this.buttonCancelEvent.UseVisualStyleBackColor = true;
+            this.buttonCancelEvent.Visible = false;
             this.buttonCancelEvent.Click += new System.EventHandler(this.ButtonCancelEvent_Click);
             // 
             // buttonSaveEvent
@@ -246,6 +248,7 @@
             this.buttonSaveEvent.TabIndex = 9;
             this.buttonSaveEvent.Text = "Save";
             this.buttonSaveEvent.UseVisualStyleBackColor = true;
+            this.buttonSaveEvent.Visible = false;
             this.buttonSaveEvent.Click += new System.EventHandler(this.ButtonSaveEvent_Click);
             // 
             // textBoxEventDescription
@@ -783,11 +786,23 @@
             this.buttonDeleteTeamEvent.Visible = false;
             this.buttonDeleteTeamEvent.Click += new System.EventHandler(this.buttonDeleteTeamEvent_Click);
             // 
+            // cancelAddTeamEvent
+            // 
+            this.cancelAddTeamEvent.Location = new System.Drawing.Point(242, 419);
+            this.cancelAddTeamEvent.Name = "cancelAddTeamEvent";
+            this.cancelAddTeamEvent.Size = new System.Drawing.Size(75, 23);
+            this.cancelAddTeamEvent.TabIndex = 26;
+            this.cancelAddTeamEvent.Text = "Cancel";
+            this.cancelAddTeamEvent.UseVisualStyleBackColor = true;
+            this.cancelAddTeamEvent.Visible = false;
+            this.cancelAddTeamEvent.Click += new System.EventHandler(this.cancelAddTeamEvent_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 518);
+            this.Controls.Add(this.cancelAddTeamEvent);
             this.Controls.Add(this.panelEvent);
             this.Controls.Add(this.panelEventTeam);
             this.Controls.Add(this.buttonDeleteTeamEvent);
@@ -899,6 +914,7 @@
         private System.Windows.Forms.Label labelTeamTitle;
         private System.Windows.Forms.TextBox textBoxTeamEventDescription;
         private System.Windows.Forms.TextBox textBoxTeamEventLocation;
+        private System.Windows.Forms.Button cancelAddTeamEvent;
     }
 }
 
