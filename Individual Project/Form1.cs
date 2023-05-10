@@ -218,7 +218,7 @@ namespace Individual_Project
             panelDeleteConfirm.Visible = false;
             bool success = false;
 
-            if (selectedEvent.TeamEventID != null)
+            if (!string.IsNullOrWhiteSpace(selectedEvent.TeamEventID))
             {
                 success = Modifications.DeleteTeamEvent(selectedEvent.TeamEventID);
             }
