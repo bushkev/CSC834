@@ -127,6 +127,7 @@ namespace Individual_Project
             panelEvent.Visible = false;
             String thisDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
             ViewEvents(thisDate);
+            comboBoxMonth.Visible = false;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
