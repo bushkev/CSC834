@@ -332,6 +332,15 @@ namespace Individual_Project
         private void buttonTeamEvent_Click(object sender, EventArgs e)
         {
             //Add Team Event button
+            //Disable other buttons
+            buttonAdd.Enabled = false;
+            buttonDelete.Enabled = false;
+            buttonEdit.Enabled = false;
+            buttonViewMonthly.Enabled = false;
+            buttonTeamEvent.Enabled = false;
+            buttonDeleteTeamEvent.Enabled = false;
+
+            buttonTeamEvent.BackColor = Color.Red;
             buttonTimeSlots.Enabled= false;
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
@@ -428,6 +437,17 @@ namespace Individual_Project
                 ViewEvents(monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd"));
                 panelTimeSlotChoice.Visible = false;
             }
+
+            //Reset buttons
+            buttonAdd.Enabled = true;
+            buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
+            buttonAdd.BackColor = DefaultBackColor;
+            buttonEdit.BackColor = DefaultBackColor;
+            buttonTeamEvent.BackColor = DefaultBackColor;
         }
 
         private void buttonCancelTeamEvent_Click(object sender, EventArgs e)
@@ -438,8 +458,11 @@ namespace Individual_Project
             buttonDelete.Enabled = true;
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
             buttonAdd.BackColor = DefaultBackColor;
             buttonEdit.BackColor = DefaultBackColor;
+            buttonTeamEvent.BackColor = DefaultBackColor;
             panelTimeSlotChoice.Visible = false;
 
             if (eList.Count != 0 && listBoxEventsDaily.SelectedIndex >= 0)
