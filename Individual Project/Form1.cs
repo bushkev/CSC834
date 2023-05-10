@@ -50,11 +50,19 @@ namespace Individual_Project
         private void ButtonSaveEvent_Click(object sender, EventArgs e)
         {
             String thisDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
-            //Todo: add logic to make sure start date is before end date. May want to create new error message.
 
-            Event workEvent = new Event(textBoxEventTitle.Text, comboBoxStartTime.SelectedItem.ToString(), comboBoxEndTime.SelectedItem.ToString(),
+            DateTime startTime = DateTime.Parse(comboBoxStartTime.SelectedItem.ToString());
+            DateTime endTime = DateTime.Parse(comboBoxEndTime.SelectedItem.ToString());
+
+            if (startTime >= endTime)
+            {
+                MessageBox.Show("Start time must be before end time.", "Error");
+                return;
+            }
+
+            Event workEvent = new Event(textBoxEventTitle.Text, startTime.ToString("HH:mm"), endTime.ToString("HH:mm"),
                textBoxEventLocation.Text, thisDate, textBoxEventDescription.Text);
-            
+
             bool noConflict = workEvent.CheckConflict(eList);
 
             panelEvent.Visible = false;
@@ -66,8 +74,6 @@ namespace Individual_Project
             buttonDelete.Enabled = true;
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
-            buttonTeamEvent.Enabled = true;
-            buttonDeleteTeamEvent.Enabled = true;
 
             if (noConflict)
             {
@@ -87,7 +93,7 @@ namespace Individual_Project
             {
                 panelConflictError.Visible = true;
                 panelEvent.Visible = false;
-            }            
+            }
         }
 
         private void ButtonCancelEvent_Click(object sender, EventArgs e)
