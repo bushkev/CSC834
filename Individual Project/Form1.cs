@@ -54,6 +54,7 @@ namespace Individual_Project
             DateTime startTime = DateTime.Parse(comboBoxStartTime.SelectedItem.ToString());
             DateTime endTime = DateTime.Parse(comboBoxEndTime.SelectedItem.ToString());
 
+            //Displays error if start time is before end time
             if (startTime >= endTime)
             {
                 MessageBox.Show("Start time must be before end time.", "Error");
