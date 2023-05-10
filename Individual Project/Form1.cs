@@ -42,6 +42,8 @@ namespace Individual_Project
             buttonDelete.Enabled = false;
             buttonEdit.Enabled = false;
             buttonViewMonthly.Enabled = false; 
+            buttonTeamEvent.Enabled = false;
+            buttonDeleteTeamEvent.Enabled = false;
         }
 
         // Button that saves data for add and edit events.
@@ -64,6 +66,8 @@ namespace Individual_Project
             buttonDelete.Enabled = true;
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
 
             if (noConflict)
             {
@@ -118,20 +122,27 @@ namespace Individual_Project
             textBoxEventStartTime.Text = selectedEvent.StartTime;
             textBoxEventEndTime.Text = selectedEvent.EndTime;
             textBoxEventLocation.Text = selectedEvent.Location;
-            textBoxEventDescription.Text = selectedEvent.Description;
+            textBoxEventDescription.Text = selectedEvent.Description; 
 
             //Enable the main buttons
             buttonAdd.Enabled = true;
             buttonDelete.Enabled = true;
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
             buttonAdd.BackColor = DefaultBackColor;
             buttonDelete.BackColor = DefaultBackColor;
             buttonEdit.BackColor = DefaultBackColor;
+            buttonTeamEvent.BackColor = DefaultBackColor;
+            buttonDeleteTeamEvent.BackColor = DefaultBackColor;
 
             //Disable save and continue buttons
             buttonSaveEvent.Visible = false;
             buttonCancelEvent.Visible = false;
+
+            //Disable Team Event panel
+            panelEventTeam.Visible = false;
         }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -147,13 +158,20 @@ namespace Individual_Project
             buttonDelete.Enabled = true;            
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
             buttonAdd.BackColor = DefaultBackColor;
             buttonDelete.BackColor = DefaultBackColor;
             buttonEdit.BackColor = DefaultBackColor;
+            buttonTeamEvent.BackColor = DefaultBackColor;
+            buttonDeleteTeamEvent.BackColor = DefaultBackColor;
 
             //Disable save and continue buttons
             buttonSaveEvent.Visible = false;
             buttonCancelEvent.Visible = false;
+
+            //Disable Team Event panel
+            panelEventTeam.Visible = false;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
@@ -229,6 +247,8 @@ namespace Individual_Project
                 buttonDelete.Enabled = false;
                 buttonEdit.Enabled = false;
                 buttonViewMonthly.Enabled = false;
+                buttonTeamEvent.Enabled = false;
+                buttonDeleteTeamEvent.Enabled = false;
             }            
         }
 
