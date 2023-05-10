@@ -123,33 +123,39 @@ namespace Individual_Project
 
         private void ListBoxEventsDaily_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedEvent = (Event)eList[listBoxEventsDaily.SelectedIndex];
-            panelEvent.Visible = true;
-            textBoxEventTitle.Text = selectedEvent.Title;
-            textBoxEventStartTime.Text = selectedEvent.StartTime;
-            textBoxEventEndTime.Text = selectedEvent.EndTime;
-            textBoxEventLocation.Text = selectedEvent.Location;
-            textBoxEventDescription.Text = selectedEvent.Description; 
+            if (listBoxEventsDaily.SelectedIndex >= 0 && listBoxEventsDaily.SelectedIndex < eList.Count)
+            {
+                selectedEvent = (Event)eList[listBoxEventsDaily.SelectedIndex];
+                panelEvent.Visible = true;
+                textBoxEventTitle.Text = selectedEvent.Title;
+                textBoxEventStartTime.Text = selectedEvent.StartTime;
+                textBoxEventEndTime.Text = selectedEvent.EndTime;
+                textBoxEventLocation.Text = selectedEvent.Location;
+                textBoxEventDescription.Text = selectedEvent.Description;
+            }
+            else
+            {
 
-            //Enable the main buttons
-            buttonAdd.Enabled = true;
-            buttonDelete.Enabled = true;
-            buttonEdit.Enabled = true;
-            buttonViewMonthly.Enabled = true;
-            buttonTeamEvent.Enabled = true;
-            buttonDeleteTeamEvent.Enabled = true;
-            buttonAdd.BackColor = DefaultBackColor;
-            buttonDelete.BackColor = DefaultBackColor;
-            buttonEdit.BackColor = DefaultBackColor;
-            buttonTeamEvent.BackColor = DefaultBackColor;
-            buttonDeleteTeamEvent.BackColor = DefaultBackColor;
+                //Enable the main buttons
+                buttonAdd.Enabled = true;
+                buttonDelete.Enabled = true;
+                buttonEdit.Enabled = true;
+                buttonViewMonthly.Enabled = true;
+                buttonTeamEvent.Enabled = true;
+                buttonDeleteTeamEvent.Enabled = true;
+                buttonAdd.BackColor = DefaultBackColor;
+                buttonDelete.BackColor = DefaultBackColor;
+                buttonEdit.BackColor = DefaultBackColor;
+                buttonTeamEvent.BackColor = DefaultBackColor;
+                buttonDeleteTeamEvent.BackColor = DefaultBackColor;
 
-            //Disable save and continue buttons
-            buttonSaveEvent.Visible = false;
-            buttonCancelEvent.Visible = false;
+                //Disable save and continue buttons
+                buttonSaveEvent.Visible = false;
+                buttonCancelEvent.Visible = false;
 
-            //Disable Team Event panel
-            panelEventTeam.Visible = false;
+                //Disable Team Event panel
+                panelEventTeam.Visible = false;
+            }
         }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
