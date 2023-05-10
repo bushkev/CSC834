@@ -75,6 +75,8 @@ namespace Individual_Project
             buttonDelete.Enabled = true;
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
 
             if (noConflict)
             {
