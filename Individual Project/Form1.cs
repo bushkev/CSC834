@@ -119,6 +119,19 @@ namespace Individual_Project
             textBoxEventEndTime.Text = selectedEvent.EndTime;
             textBoxEventLocation.Text = selectedEvent.Location;
             textBoxEventDescription.Text = selectedEvent.Description;
+
+            //Enable the main buttons
+            buttonAdd.Enabled = true;
+            buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonAdd.BackColor = DefaultBackColor;
+            buttonDelete.BackColor = DefaultBackColor;
+            buttonEdit.BackColor = DefaultBackColor;
+
+            //Disable save and continue buttons
+            buttonSaveEvent.Visible = false;
+            buttonCancelEvent.Visible = false;
         }
 
         private void MonthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -128,6 +141,19 @@ namespace Individual_Project
             String thisDate = monthCalendar1.SelectionRange.Start.ToString("yyyy-MM-dd");
             ViewEvents(thisDate);
             comboBoxMonth.Visible = false;
+
+            //Enable the main buttons and set them to default colors
+            buttonAdd.Enabled = true;            
+            buttonDelete.Enabled = true;            
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonAdd.BackColor = DefaultBackColor;
+            buttonDelete.BackColor = DefaultBackColor;
+            buttonEdit.BackColor = DefaultBackColor;
+
+            //Disable save and continue buttons
+            buttonSaveEvent.Visible = false;
+            buttonCancelEvent.Visible = false;
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
