@@ -107,6 +107,8 @@ namespace Individual_Project
             buttonDelete.Enabled = true;
             buttonEdit.Enabled = true;
             buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
             buttonAdd.BackColor = DefaultBackColor;
             buttonEdit.BackColor = DefaultBackColor;
             buttonSaveEvent.Visible = false;
@@ -200,6 +202,14 @@ namespace Individual_Project
                     buttonDelete.BackColor = Color.Red;
                     panelEvent.Visible = false;
                     panelDeleteConfirm.Visible = true;
+
+                    //Disable other buttons
+                    buttonAdd.Enabled = false;
+                    buttonDelete.Enabled = false;
+                    buttonEdit.Enabled = false;
+                    buttonViewMonthly.Enabled = false;
+                    buttonTeamEvent.Enabled = false;
+                    buttonDeleteTeamEvent.Enabled = false;
                 }
             }                
         }
@@ -210,6 +220,14 @@ namespace Individual_Project
             buttonDelete.BackColor = DefaultBackColor;
             buttonDeleteTeamEvent.BackColor = DefaultBackColor;
             panelDeleteConfirm.Visible = false;
+
+            //Enable the main buttons
+            buttonAdd.Enabled = true;
+            buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
         }
 
         private void buttonConfirmDelete_Click(object sender, EventArgs e)
@@ -232,6 +250,14 @@ namespace Individual_Project
             {
                 ViewEvents(selectedEvent.Date);
             }
+
+            //Enable the main buttons
+            buttonAdd.Enabled = true;
+            buttonDelete.Enabled = true;
+            buttonEdit.Enabled = true;
+            buttonViewMonthly.Enabled = true;
+            buttonTeamEvent.Enabled = true;
+            buttonDeleteTeamEvent.Enabled = true;
         }
 
         private void buttonEdit_Click(object sender, EventArgs e)
@@ -373,11 +399,20 @@ namespace Individual_Project
         private void buttonDeleteTeamEvent_Click(object sender, EventArgs e)
         {
             //Delete Team Event button
+            
             if (selectedEvent.EventID != 0)
             {
                 buttonDeleteTeamEvent.BackColor = Color.Red;
                 panelEvent.Visible = false;
                 panelDeleteConfirm.Visible = true;
+
+                //Disable other buttons
+                buttonAdd.Enabled = false;
+                buttonDelete.Enabled = false;
+                buttonEdit.Enabled = false;
+                buttonViewMonthly.Enabled = false;
+                buttonTeamEvent.Enabled = false;
+                buttonDeleteTeamEvent.Enabled = false;
             }
         }
 
@@ -464,6 +499,7 @@ namespace Individual_Project
             buttonAdd.BackColor = DefaultBackColor;
             buttonEdit.BackColor = DefaultBackColor;
             buttonTeamEvent.BackColor = DefaultBackColor;
+            cancelAddTeamEvent.Visible = false;
         }
 
         private void buttonCancelTeamEvent_Click(object sender, EventArgs e)
@@ -479,6 +515,7 @@ namespace Individual_Project
             buttonAdd.BackColor = DefaultBackColor;
             buttonEdit.BackColor = DefaultBackColor;
             buttonTeamEvent.BackColor = DefaultBackColor;
+            cancelAddTeamEvent.Visible = false;
             panelTimeSlotChoice.Visible = false;
 
             if (eList.Count != 0 && listBoxEventsDaily.SelectedIndex >= 0)

@@ -816,10 +816,10 @@
             this.Controls.Add(this.labelEventsOn);
             this.Controls.Add(this.listBoxEventsDaily);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.panelDeleteConfirm);
             this.Controls.Add(this.panelConflictError);
-            this.Controls.Add(this.panelMembersToAdd);
             this.Controls.Add(this.panelTimeSlotChoice);
+            this.Controls.Add(this.panelDeleteConfirm);
+            this.Controls.Add(this.panelMembersToAdd);
             this.Name = "FormMain";
             this.Text = "Personal Calendar";
             this.panelEvent.ResumeLayout(false);
