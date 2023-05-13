@@ -242,7 +242,7 @@ namespace Individual_Project
             panelDeleteConfirm.Visible = false;
             bool success = false;
 
-            if (!string.IsNullOrWhiteSpace(selectedEvent.TeamEventID))
+            if (currentUser.IsManager && !string.IsNullOrWhiteSpace(selectedEvent.TeamEventID))
             {
                 success = Modifications.DeleteTeamEvent(selectedEvent.TeamEventID);
             }
@@ -391,12 +391,15 @@ namespace Individual_Project
             panelEventTeam.Visible = true;
             panelEvent.Visible = false;
             membersToChooseList = new List<TeamMember>();
-            clientIdsForTeamEvent = new List<int>();
+            clientIdsForTeamEvent = new List<int>() { currentUser.ClientID};
 
             foreach (var member in currentUser.TeamMembers)
             {
-                listBoxMembersToAdd.Items.Add(member.FullName);
-                membersToChooseList.Add(member);
+                if (member.clientID != currentUser.ClientID)
+                {
+                    //listBoxMembersToAdd.Items.Add(member.FullName);
+                    membersToChooseList.Add(member);
+                }
             }
         }
 
