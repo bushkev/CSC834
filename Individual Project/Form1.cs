@@ -459,13 +459,16 @@ namespace Individual_Project
             var index = listBoxMembersToAdd.SelectedIndex;
             var item = listBoxMembersToAdd.SelectedItem;
 
-            clientIdsForTeamEvent.Add(membersToChooseList[index].clientID);
-            membersToChooseList.RemoveAt(index);
+            if (index >= 0 && index < membersToChooseList.Count)
+            {
+                clientIdsForTeamEvent.Add(membersToChooseList[index].clientID);
+                membersToChooseList.RemoveAt(index);
 
-            listBoxTeamMembersAdded.Items.Add(item);
+                listBoxTeamMembersAdded.Items.Add(item);
 
-            panelMembersToAdd.Visible = false;
-            panelEventTeam.Visible = true;
+                panelMembersToAdd.Visible = false;
+                panelEventTeam.Visible = true;
+            }
         }
 
         private void buttonCancelMemberAdd_Click(object sender, EventArgs e)
