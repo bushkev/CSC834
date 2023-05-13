@@ -71,17 +71,6 @@ namespace Individual_Project
             date = d;
             description = ds;
             teamEventID = te;
-            title = t;
-            
-            if (string.IsNullOrEmpty(startTime))
-            {
-                startTime = st;
-            }
-            
-            if (string.IsNullOrEmpty(endTime))
-            {
-                endTime = et;
-            }
         }
 
         public static ArrayList GetEventList(string dateString, int clientID)

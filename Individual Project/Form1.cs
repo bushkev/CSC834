@@ -53,7 +53,7 @@ namespace Individual_Project
 
             DateTime startTime = DateTime.Parse(comboBoxStartTime.SelectedItem.ToString());
             DateTime endTime = DateTime.Parse(comboBoxEndTime.SelectedItem.ToString());
-            
+
             // Store the selected start and end time before creating a new event
             DateTime selectedStartTime = DateTime.Parse(comboBoxStartTime.SelectedItem.ToString());
             DateTime selectedEndTime = DateTime.Parse(comboBoxEndTime.SelectedItem.ToString());
@@ -65,7 +65,8 @@ namespace Individual_Project
                 return;
             }
 
-            Event workEvent = new Event(textBoxEventTitle.Text, selectedStartTime.ToString("HH:mm"), selectedEndTime.ToString("HH:mm"), textBoxEventLocation.Text, thisDate, textBoxEventDescription.Text);
+            Event workEvent = new Event(textBoxEventTitle.Text, startTime.ToString("HH:mm"), endTime.ToString("HH:mm"),
+               textBoxEventLocation.Text, thisDate, textBoxEventDescription.Text);
 
             bool noConflict = workEvent.CheckConflict(eList);
 
